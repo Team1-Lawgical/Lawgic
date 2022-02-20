@@ -1,7 +1,12 @@
 body{
     font-family: 'Raleway', sans-serif;
-    background-color: #ACCEDC;
-    margin: 50px 0px;
+    background-color: #F8CC10;
+    margin: 100px 0px;
+}
+#logo-image{
+    position: absolute;
+    left:0;
+    top:0;
 }
 .main-section small{
     font-size: 12px;
@@ -13,6 +18,7 @@ body{
     width: 960px;
     background-color: #fff;
     margin: auto;
+    border-radius: 25px;
 }
 .head-section{
     border-bottom:1px solid #E6E6E6;
@@ -52,6 +58,7 @@ body{
     clear: both;
     overflow: hidden;
     width: 100%;
+    border-radius: 25px;
 }
 .left-section{
     width: calc(30% - 1px);
