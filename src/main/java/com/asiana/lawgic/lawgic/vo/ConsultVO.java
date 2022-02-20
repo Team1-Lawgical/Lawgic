@@ -1,5 +1,6 @@
 package com.asiana.lawgic.lawgic.vo;
 
+import com.asiana.lawgic.lawgic.entity.CarType;
 import lombok.*;
 
 @Getter
@@ -15,7 +16,7 @@ public class ConsultVO {
     private String opponentAddress;
     private String opponentBirthday;
     private String opponentPhone;
-    private String opponentCarType;
+    private CarType opponentCarType;
     private String summary;
     private String judgement;
     private String comments;
