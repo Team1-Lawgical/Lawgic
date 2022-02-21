@@ -18,19 +18,32 @@ public class ConsultDAOMemory implements ConsultDAO {
     }
 
     @Override
-    public String getClientById(Long clientId, Long lawyerId) throws SQLException {
-        sql = "SELECT appointment_date, lawyer_name, client_name, client_birthday, client_address, client_phone " +
-                "FROM client c1, lawyer l1, consult c2 " +
-                "WHERE c2.client_id = ? AND c2.lawyer_id = ? AND c1.client_id = c2.client_id AND l1.lawyer_id = c2.lawyer_id";
+    public String getClientById(Long clientId) throws SQLException {
+        sql = "SELECT client_name, client_birthday, client_address, client_phone " +
+                "FROM client " +
+                "WHERE client_id = ?";
 
         preparedStatement = conn.prepareStatement(sql);
         preparedStatement.setLong(1, clientId);
-        preparedStatement.setLong(2, lawyerId);
         ResultSet rs = preparedStatement.executeQuery();
         if (rs.next()) {
-            result = rs.getString("appointment_date") + " " + rs.getString("lawyer_name") + " "
-                    + rs.getString("client_name") + " " + rs.getString("client_birthday") + " "
+            result = rs.getString("client_name") + " " + rs.getString("client_birthday") + " "
                     + rs.getString("client_address") + " " + rs.getString("client_phone"); // 칼럼 위치로 지정해도 되지만 이름으로 지정명확하게 해줌
+        }
+        rs.close();
+        preparedStatement.close();
+        return result;
+    }
+
+    @Override
+    public String getLawyerById(Long lawyerId) throws SQLException {
+        sql = "SELECT lawyer_name FROM lawyer WHERE lawyer_id = ?";
+
+        preparedStatement = conn.prepareStatement(sql);
+        preparedStatement.setLong(1, lawyerId);
+        ResultSet rs = preparedStatement.executeQuery();
+        if (rs.next()) {
+            result = rs.getString("lawyer_id");
         }
         rs.close();
         preparedStatement.close();

@@ -9,7 +9,10 @@ import java.util.Optional;
 public interface ConsultDAO {
 
     // 상담신청서에 작성할 고객의 정보 가져오기
-    String getClientById(Long clientId, Long lawyerId) throws SQLException;
+    String getClientById(Long clientId) throws SQLException;
+
+    // 상담신청서에 작성할 변호사의 정보 가져오기
+    String getLawyerById(Long lawyerId) throws SQLException;
 
     // 상담신청서 작성하기
     void saveConsult(ConsultVO consultVO);
