@@ -11,12 +11,13 @@ import java.util.UUID;
 
 import static com.asiana.lawgic.lawgic.entity.CarType.convertToCarType;
 
-public class ClientDAOMemory implements ClientDAO{
+public class ClientDAOMemory implements ClientDAO {
     private String sql;
     private Connection conn;
-    public ClientDAOMemory(){
-        sql="";
-        conn=DatabaseConnection.getConnection();
+
+    public ClientDAOMemory() {
+        sql = "";
+        conn = DatabaseConnection.getConnection();
     }
 
 //    @Override
@@ -50,21 +51,21 @@ public class ClientDAOMemory implements ClientDAO{
 
     @Override
     public void registerClient(ClientVO vo) throws SQLException {
-        PreparedStatement pstmt=null;
-        ResultSet rs=null;
-        sql = "INSERT INTO client VALUES ('"+
-                vo.getClientId()+"', '"+
-                vo.getAddress()+"', '"+
-                vo.getBirthday()+"', '"+
-                vo.getCarType()+"', '"+
-                vo.getEmail()+"', '"+
-                vo.getGender()+"', '"+
-                vo.getName()+"', '"+
-                vo.getPassword()+"', '"+
-                vo.getPhone()+"')";
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        sql = "INSERT INTO client VALUES ('" +
+                vo.getClientId() + "', '" +
+                vo.getAddress() + "', '" +
+                vo.getBirthday() + "', '" +
+                vo.getCarType() + "', '" +
+                vo.getEmail() + "', '" +
+                vo.getGender() + "', '" +
+                vo.getName() + "', '" +
+                vo.getPassword() + "', '" +
+                vo.getPhone() + "')";
 
-        pstmt=conn.prepareStatement(sql);
-        rs=pstmt.executeQuery();
+        pstmt = conn.prepareStatement(sql);
+        rs = pstmt.executeQuery();
 
         rs.close();
         pstmt.close();
@@ -72,15 +73,15 @@ public class ClientDAOMemory implements ClientDAO{
 
     @Override
     public String emailExistsCheck(String email) throws SQLException {
-        PreparedStatement pstmt=null;
-        ResultSet rs=null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
         int count = 0;
 
-        sql="SELECT count(*) FROM client WHERE email=?";
+        sql = "SELECT count(*) FROM client WHERE email=?";
 
-        pstmt=conn.prepareStatement(sql);
+        pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, email);
-        rs=pstmt.executeQuery();
+        rs = pstmt.executeQuery();
 
         if (rs.next()) {
             count = rs.getInt(1);
@@ -95,19 +96,19 @@ public class ClientDAOMemory implements ClientDAO{
     @Override
     public ClientVO findClientByEmail(String email) throws SQLException {
         ClientVO vo = null;
-        PreparedStatement pstmt=null;
-        ResultSet rs=null;
-        sql="SELECT client_id, address, birthday, car_type, email, gender, name, password, phone "
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        sql = "SELECT client_id, address, birthday, car_type, email, gender, name, password, phone "
                 + "FROM client WHERE email=?";
 
-        pstmt=conn.prepareStatement(sql);
+        pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, email);
-        rs=pstmt.executeQuery();
+        rs = pstmt.executeQuery();
 
         int carTypeNum = rs.getInt("car_type");
 
-        if(rs.next()){
-            vo=new ClientVO(rs.getLong("client_id"),
+        if (rs.next()) {
+            vo = new ClientVO(rs.getLong("client_id"),
                     rs.getString("address"),
                     rs.getDate("birthday"),
                     convertToCarType(carTypeNum),
@@ -127,18 +128,18 @@ public class ClientDAOMemory implements ClientDAO{
     @Override
     public ClientVO findClientById(int clientId) throws SQLException {
         ClientVO vo = null;
-        PreparedStatement pstmt=null;
-        ResultSet rs=null;
-        sql="SELECT client_id, address, birthday, car_type, email, gender, name, password, phone "
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        sql = "SELECT client_id, address, birthday, car_type, email, gender, name, password, phone "
                 + "FROM client WHERE client_id=?";
 
-        pstmt=conn.prepareStatement(sql);
+        pstmt = conn.prepareStatement(sql);
         pstmt.setInt(1, clientId);
-        rs=pstmt.executeQuery();
+        rs = pstmt.executeQuery();
         int carTypeNum = rs.getInt("car_type");
 
-        if(rs.next()){
-            vo=new ClientVO(rs.getLong("client_id"),
+        if (rs.next()) {
+            vo = new ClientVO(rs.getLong("client_id"),
                     rs.getString("address"),
                     rs.getDate("birthday"),
                     convertToCarType(carTypeNum),

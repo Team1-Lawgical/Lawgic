@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static com.asiana.lawgic.lawgic.entity.CarType.convertCarTypeToInteger;
+
 public class ConsultDAOMemory implements ConsultDAO {
     private String sql;
     private Connection conn;
@@ -64,7 +66,7 @@ public class ConsultDAOMemory implements ConsultDAO {
             preparedStatement.setString(5, consultVO.getOpponentAddress());
             preparedStatement.setString(6, consultVO.getOpponentBirthday());
             preparedStatement.setString(7, consultVO.getOpponentPhone());
-            preparedStatement.setString(8, consultVO.getOpponentCarType().toString()); // TODO 수정사항
+            preparedStatement.setInt(8, convertCarTypeToInteger(consultVO.getOpponentCarType())); // TODO 수정사항
             preparedStatement.setString(9, consultVO.getComments());
             preparedStatement.setString(10, consultVO.getJudgement());
             preparedStatement.setString(11, consultVO.getSummary());
