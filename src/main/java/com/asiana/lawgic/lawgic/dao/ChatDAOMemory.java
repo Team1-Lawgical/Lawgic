@@ -1,6 +1,6 @@
 package com.asiana.lawgic.lawgic.dao;
 
-import com.asiana.lawgic.lawgic.entity.Consult;
+//import com.asiana.lawgic.lawgic.entity.Consult;
 import com.asiana.lawgic.lawgic.entity.Message;
 import com.asiana.lawgic.lawgic.entity.MessageType;
 

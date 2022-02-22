@@ -32,7 +32,7 @@ public class Consult {
 
     private String opponentPhone;
 
-    private String opponentCarType;
+    private CarType opponentCarType;
 
     @ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.REMOVE)
     @JoinColumn(name="lawyer_id")

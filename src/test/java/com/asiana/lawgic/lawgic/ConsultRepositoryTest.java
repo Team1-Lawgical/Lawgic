@@ -1,5 +1,6 @@
 package com.asiana.lawgic.lawgic;
 
+import com.asiana.lawgic.lawgic.entity.CarType;
 import com.asiana.lawgic.lawgic.entity.Client;
 import com.asiana.lawgic.lawgic.entity.Consult;
 import com.asiana.lawgic.lawgic.entity.Lawyer;
@@ -20,7 +21,7 @@ public class ConsultRepositoryTest {
     private String[] appointmentDate = {"2022-01-16", "2022-06-25", "2022-04-12", "2022-01-23", "2022-01-11"};
     private String[] opponentPhone={"01034523623","01046234324","01045233734","01036239385","01035236343"};
     private String[] opponentName={"이윤성","서유리","정다은","김은성","고윤정"};
-    private String[] opponentCarType={"SM7","Toska","Forte","Matiz","QM6"};
+    private CarType[] opponentCarType={ CarType.CITY_CAR, CarType.COMPACT_CAR, CarType.SPORTS_CAR, CarType.LARGE_SIZE_CAR, CarType.FULL_SIZE_LUXURY_CAR };
     private String[] opponentBirthday = {"1995-03-16", "1996-04-25", "1997-12-24", "1993-06-23", "1997-02-12"};
     private String[] address = {"경기도 시흥시", "경기도 화성시", "서울시 화곡동", " 서울시 염창동", "서울시 관악구"};
     private String[] judgement = {"경기도 시흥시", "경기도 화성시", "서울시 화곡동", " 서울시 염창동", "서울시 관악구"};
