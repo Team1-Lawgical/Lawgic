@@ -5,7 +5,7 @@ public enum CarType {
 
     public static CarType convertToCarType(int num) {
         CarType ct = null;
-        switch(num) {
+        switch (num) {
             case 1:
                 ct = CarType.CITY_CAR;
                 break;
@@ -29,5 +29,30 @@ public enum CarType {
                 break;
         }
         return ct;
+    }
+
+    public static int convertCarTypeToInteger(CarType carType) {
+        int number = 1;
+        switch (carType) {
+            case SUBCOMPACT_CAR:
+                number = 2;
+                break;
+            case COMPACT_CAR:
+                number = 3;
+                break;
+            case MID_SIZE_CAR:
+                number = 4;
+                break;
+            case FULL_SIZE_LUXURY_CAR:
+                number = 5;
+                break;
+            case LARGE_SIZE_CAR:
+                number = 6;
+                break;
+            case SPORTS_CAR:
+                number = 7;
+                break;
+        }
+        return number;
     }
 }
