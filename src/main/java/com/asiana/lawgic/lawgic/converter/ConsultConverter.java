@@ -5,7 +5,7 @@ import com.asiana.lawgic.lawgic.entity.Consult;
 
 public class ConsultConverter {
 
-    public Consult convertToConsult(ConsultDTO consultDTO){
+    public Consult convertToConsult(ConsultDTO consultDTO) {
         return Consult.builder()
                 .appointmentDate(consultDTO.getAppointmentDate())
                 .summary(consultDTO.getSummary())

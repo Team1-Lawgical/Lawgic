@@ -26,40 +26,39 @@ public class ChatController {
 
 
     @GetMapping("/chat/client")
-    public String mainClientChatController(Model model){
-        List<LawyerDTO> lawyerDTOList=chatService.getAllLawyers();
-        MessageDTO messageDTO=chatService.getClientMessage();
-        Consult consult=chatService.getConsultByLawyerAndClientId(6L,1L);
-        List<MessageDTO> messageDTOList=chatService.getMessageByChatId(21L);
-        model.addAttribute("sender","client");
-        model.addAttribute("receiver","lawyer");
-        model.addAttribute("lawyerDTO",lawyerDTOList);
-        model.addAttribute("message",messageDTO);
-        model.addAttribute("chatLawyer",consult.getLawyer());
-        model.addAttribute("messageList",messageDTOList);
+    public String mainClientChatController(Model model) {
+        List<LawyerDTO> lawyerDTOList = chatService.getAllLawyers();
+        MessageDTO messageDTO = chatService.getClientMessage();
+        Consult consult = chatService.getConsultByLawyerAndClientId(6L, 1L);
+        List<MessageDTO> messageDTOList = chatService.getMessageByChatId(21L);
+        model.addAttribute("sender", "client");
+        model.addAttribute("receiver", "lawyer");
+        model.addAttribute("lawyerDTO", lawyerDTOList);
+        model.addAttribute("message", messageDTO);
+        model.addAttribute("chatLawyer", consult.getLawyer());
+        model.addAttribute("messageList", messageDTOList);
 
         return "chat/chat";
     }
+
     @GetMapping("/chat/lawyer")
-    public String mainLawyerChatController(Model model){
-        model.addAttribute("sender","lawyer");
-        model.addAttribute("receiver","client");
+    public String mainLawyerChatController(Model model) {
+        model.addAttribute("sender", "lawyer");
+        model.addAttribute("receiver", "client");
         return "chat/chat";
     }
 
     @GetMapping("/")
-    public String mainClientChatController3(Model model){
+    public String mainClientChatController3(Model model) {
         //service에서 clientDTO를 얻어오는 코드가 있다는 가정
 //        ClientDTO clientDTO=chatService.getClientInfo();
 //        MessageDTO messageDTO=chatService.getClientMessage();
 //        model.addAttribute("dto",clientDTO);
 //        model.addAttribute("message",messageDTO);
-        model.addAttribute("sender","lawyer");
-        model.addAttribute("receiver","client");
+        model.addAttribute("sender", "lawyer");
+        model.addAttribute("receiver", "client");
         return "chat/test";
     }
-
-
 
 
     // "/app"로 시작하는 대상이 있는 클라이언트에서 보낸 모든 메시지는
@@ -67,12 +66,12 @@ public class ChatController {
     // 예를 들어 "/app/chat.sendMessage"인 메시지는 sendMessage()로 라우팅 되며
     // "/app/chat.addUser"인 메시지는 addUser()로 라우팅된다.
     @MessageMapping("/chat.sendMessage")
-     //@SendTo("/topic/public")
-    public MessageDTO sendMessage(@Payload MessageDTO messageDTO){
+    //@SendTo("/topic/public")
+    public MessageDTO sendMessage(@Payload MessageDTO messageDTO) {
         System.out.println("sendMessage method!!!***");
-        System.out.println("message1:"+messageDTO.getContent());
-        messageDTO.setSender(messageDTO.getSender().equals("lawyer")?"client":"lawyer");
-        simpMessagingTemplate.convertAndSend("/topic/public",messageDTO);
+        System.out.println("message1:" + messageDTO.getContent());
+        messageDTO.setSender(messageDTO.getSender().equals("lawyer") ? "client" : "lawyer");
+        simpMessagingTemplate.convertAndSend("/topic/public", messageDTO);
         return messageDTO;
     }
 }

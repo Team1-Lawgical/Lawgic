@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ConsultServiceImpl implements ConsultService{
+public class ConsultServiceImpl implements ConsultService {
 
     private final ConsultRepository consultRepository;
     private final LawyerRepository lawyerRepository;
