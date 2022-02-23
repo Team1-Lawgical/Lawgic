@@ -29,17 +29,19 @@ public class ConsultServiceImpl implements ConsultService {
     @Override
     @Transactional
     public Consult insertConsult(ConsultDTO consultDTO) throws Exception {
-        getClient(consultDTO.getClientId());
-        getLawyer(consultDTO.getLawyerId());
+        getLawyerById(consultDTO.getClientId());
+        getClientById(consultDTO.getLawyerId());
         Consult consult = converter.convertToConsult(consultDTO);
         return consultRepository.save(consult);
     }
 
-    private Lawyer getLawyer(Long lawyerId) throws Exception {
+    @Transactional
+    public Lawyer getLawyerById(Long lawyerId) throws Exception {
         return lawyerRepository.findById(lawyerId).orElseThrow(() -> new Exception("존재하지 않는 변호사입니다"));
     }
 
-    private Client getClient(Long clientId) throws Exception {
+    @Transactional
+    public Client getClientById(Long clientId) throws Exception {
         return clientRepository.findById(clientId).orElseThrow(() -> new Exception("존재하지 않는 고객입니다"));
     }
 }

@@ -2,7 +2,9 @@ package com.asiana.lawgic.lawgic.converter;
 
 import com.asiana.lawgic.lawgic.dto.ClientDTO;
 import com.asiana.lawgic.lawgic.entity.Client;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ClientConverter {
 
     public ClientDTO convertToClientDTO(Client client) {

@@ -19,30 +19,32 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class ChatServiceImpl implements ChatService{
+public class ChatServiceImpl implements ChatService {
     final private LawyerRepository lawyerRepository;
     final private ConsultRepository consultRepository;
     final private ChatRepository chatRepository;
-    public List<LawyerDTO> getAllLawyers(){
-        ModelMapper mapper= ModelMapperConfig.getModelMapperInstance();
 
-        Object[] lawyers=lawyerRepository.getAllLawyers();
-        List<Lawyer> lawyerList=new ArrayList<>();
-        List<LawyerDTO> lawyerDTOList=new ArrayList<>();
-        for(Object o:lawyers){
-            lawyerList.add((Lawyer)o);
+    public List<LawyerDTO> getAllLawyers() {
+        ModelMapper mapper = ModelMapperConfig.getModelMapperInstance();
+
+        Object[] lawyers = lawyerRepository.getAllLawyers();
+        List<Lawyer> lawyerList = new ArrayList<>();
+        List<LawyerDTO> lawyerDTOList = new ArrayList<>();
+        for (Object o : lawyers) {
+            lawyerList.add((Lawyer) o);
         }
 
-        for(Lawyer lawyerEntity:lawyerList){
-            LawyerDTO lawyerDTO=mapper.map(lawyerEntity, LawyerDTO.class);
+        for (Lawyer lawyerEntity : lawyerList) {
+            LawyerDTO lawyerDTO = mapper.map(lawyerEntity, LawyerDTO.class);
             lawyerDTOList.add(lawyerDTO);
         }
 
         return lawyerDTOList;
 
     }
-    public MessageDTO getClientMessage(){
-        MessageDTO messageDTO=MessageDTO.builder()
+
+    public MessageDTO getClientMessage() {
+        MessageDTO messageDTO = MessageDTO.builder()
                 .content("내용 1")
                 .sender("Client")
                 .regdate("2022-03-12")
@@ -52,18 +54,18 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public Consult getConsultByLawyerAndClientId(Long lawyerId, Long clientID) {
-        Consult consult=consultRepository.getConsultByLawyerAndClientId(lawyerId,clientID);
+        Consult consult = consultRepository.getConsultByLawyerAndClientId(lawyerId, clientID);
         return consult;
     }
 
     @Override
     public List<MessageDTO> getMessageByChatId(Long chatId) {
-        ModelMapper mapper= ModelMapperConfig.getModelMapperInstance();
-        Chat chat=chatRepository.getMessagesByChatId(21L);
-        List<Message> messages=chat.getMessages();
-        List<MessageDTO> messageDTOList=new ArrayList<>();
-        for(Message m:messages){
-            MessageDTO messageDTO=mapper.map(messages,MessageDTO.class);
+        ModelMapper mapper = ModelMapperConfig.getModelMapperInstance();
+        Chat chat = chatRepository.getMessagesByChatId(21L);
+        List<Message> messages = chat.getMessages();
+        List<MessageDTO> messageDTOList = new ArrayList<>();
+        for (Message m : messages) {
+            MessageDTO messageDTO = mapper.map(messages, MessageDTO.class);
             messageDTOList.add(messageDTO);
         }
 
@@ -73,11 +75,9 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public Long getChatId(Consult consult) {
-        Long chatId=chatRepository.getChatIdByLawyerAndClientId(consult.getLawyer().getLawyerId(), consult.getClient().getClientId());
+        Long chatId = chatRepository.getChatIdByLawyerAndClientId(consult.getLawyer().getLawyerId(), consult.getClient().getClientId());
         return chatId;
     }
-
-
 
 
 }
