@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="../css/chat/chat.css" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="logo-image" src="../images/logo.png" width="100" height="80" >
+<div class="main-section">
+    <div class="head-section">
+        <div class="headLeft-section">
+            <div class="headLeft-sub">
+                <input type="text" name="search" placeholder="Search...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        <div class="headRight-section">
+            <div class="headRight-sub">
+                <h3 th:text="${chatLawyer.name}"></h3>
+                <small th:text="|${chatLawyer.name} 법률사무소 ${chatLawyer.phone}|"> </small>
+            </div>
+        </div>
+    </div>
+    <div class="body-section">
+        <div class="left-section mCustomScrollbar" data-mcs-theme="minimal-dark">
+            <ul class="lawyer-list">
+                <li name="chatList" th:if="${dto.lawyerId} == ${chatLawyer.lawyerId}" class="active" th:each="dto: ${DTO}">
+                    <div class="chatList">
+                        <div class="img">
+                            <i class="fa fa-circle"></i>
+                            <img th:if="${dto.gender}" src="../images/man.png">
+                            <img th:unless="${dto.gender}" src="../images/woman.png">
+                        </div>
+                        <div class="desc">
+                            <small class="time">05:30 am</small>
+                            <h5 th:text="${dto.name}"></h5>
+                            <small>상담중</small>
+                        </div>
+                    </div>
+                </li>
+                <li name="chatList" th:unless="${dto.lawyerId} == ${chatLawyer.lawyerId}" th:each="dto: ${DTO}">
+                    <div class="chatList">
+                        <div class="img">
+                            <i class="fa fa-circle"></i>
+                            <img th:if="${dto.gender}" src="../images/man.png">
+                            <img th:unless="${dto.gender}" src="../images/woman.png">
+                        </div>
+                        <div class="desc">
+                            <small class="time">05:30 am</small>
+                            <h5 th:text="${dto.name}"></h5>
+                            <small>상담 종료</small>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="right-section">
+            <div class="message mCustomScrollbar" data-mcs-theme="minimal-dark">
+                <ul class="client-message-area">
+
+                </ul>
+            </div>
+            <div class="right-section-bottom">
+                <form>
+                    <div class="upload-btn">
+                        <button class="btn"><i class="fa fa-photo"></i></button>
+                        <input type="file"/>
+                    </div>
+                    <input type="text" name="" placeholder="type here..." class="message-input" >
+                    <button class="btn-send"><i class="fa fa-send"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- custom scrollbar plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+<!--<script src="/js/main.js"></script>-->
+<script th:inline="javascript">
+    'use strict';
+    var sender=[[${sender}]];
+    var receiver=[[${receiver}]];
+    var lawyerDto=[[${DTO}]];
+
+
+    //var message=[[${message}]];
+
+
+    var lawyerMessageArea=document.querySelector('.lawyer-message-area');
+    var MessageArea=document.querySelector('.client-message-area')
+    var sendButton=document.querySelector('.btn-send');
+    var chatListArea=document.querySelector('.lawyer-list');
+    //var messageInput = document.querySelector('.btn-send');
+    var messageInput=document.querySelector('.message-input');
+    // console.log(dto);
+    // if(dto.hasOwnProperty('clientId')){
+    //     console.log("hello client");
+    // }
+    // if(dto.hasOwnProperty('lawyerId')){
+    //     console.log("hello lawyer");
+    //
+    // }
+    var usernamePage = document.querySelector('#username-page');
+    var chatPage = document.querySelector('#chat-page');
+    var usernameForm = document.querySelector('#usernameForm');
+    var messageForm = document.querySelector('#messageForm');
+
+    var messageArea = document.querySelector('#messageArea');
+    var connectingElement = document.querySelector('.connecting');
+
+    var stompClient = null;
+    var username = null;
+
+    var colors = [
+        '#2196F3', '#32c787', '#00BCD4', '#ff5652',
+        '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
+    ];
+
+    $('li[name="chatList"]').on('click', function () {
+        $('.active').removeClass();
+        $(this).toggleClass(' active');
+    });
+
+
+    connect();
+    //
+    // function chatList(){
+    //     console.log(lawyerDto);
+    //     for(var dto in lawyerDto){
+    //         console.log(dto.name);
+    //         console.log(dto.name.toString());
+    //
+    //         var chatListArea = document.createElement('li');
+    //
+    //         var chatListElement=document.createElement('div');
+    //         chatListElement.classList.add('chatList');
+    //         var imgElement=document.createElement('div');
+    //         imgElement.classList.add('img');
+    //         chatListElement.appendChild(imgElement);
+    //
+    //         var iElement=document.createElement('i');
+    //         iElement.classList.add(".fa.fa-circle");
+    //         var imageElement=document.createElement('img');
+    //         imageElement.src="../images/man.png";
+    //         imgElement.appendChild(iElement);
+    //         imgElement.appendChild(imageElement);
+    //
+    //         var descElement=document.createElement('div');
+    //         descElement.classList.add("desc");
+    //
+    //         var smallTimeElement=document.createElement('small');
+    //         smallTimeElement.classList.add('time');
+    //         var smallTimeText=document.createTextNode(new Date().toString());
+    //         smallTimeElement.appendChild(smallTimeText);
+    //         smallTimeElement.classList.add("time");
+    //
+    //         var h5Element=document.createElement('h5');
+    //         var h5Text=document.createTextNode(dto.name);
+    //         h5Element.appendChild(h5Text);
+    //         var smallElement=document.createElement('small');
+    //         var smallText=document.createTextNode("상담 종료");
+    //         smallTimeElement.appendChild(smallText);
+    //
+    //         descElement.appendChild(smallTimeElement);
+    //         descElement.appendChild(h5Element);
+    //         descElement.appendChild(smallElement);
+    //
+    //         chatListElement.appendChild(descElement);
+    //
+    //         chatListArea.appendChild(chatListElement);
+    //     }
+    //
+    //
+    //
+    // }
+
+    function connect(event) {
+        // username = document.querySelector('#name').value.trim();
+        //
+        // if(username) {
+           // usernamePage.classList.add('hidden');
+           // chatPage.classList.remove('hidden');
+
+            var socket = new SockJS('/ws');
+            stompClient = Stomp.over(socket);
+
+            stompClient.connect({}, onConnected, onError);
+      //  }
+       // event.preventDefault();
+    }
+
+
+    function onConnected() {
+        // Subscribe to the Public Topic
+        stompClient.subscribe('/topic/public', onMessageReceived);
+
+        // Tell your username to the server
+        stompClient.send("/app/chat.addUser",
+            {},
+            JSON.stringify({sender: username, type: 'JOIN'})
+        )
+
+       // connectingElement.classList.add('hidden');
+    }
+
+
+    function onError(error) {
+       // connectingElement.textContent = 'Could not connect to WebSocket server. Please refresh this page to try again!';
+       // connectingElement.style.color = 'red';
+    }
+
+
+    function sendMessage(event) {
+        console.log("sendMessage clicked");
+        var messageContent=messageInput.value.trim();
+        var date=new Date().toString();
+        var splitDate=date.split(' ');
+        var time=splitDate[4].substring(0,5);
+
+
+        if(Number(time.substring(0,2))>=12){
+            time=String(Number(time.substring(0,2))-12)+time.substring(2,time.length);
+            time=time+" pm";
+        }else{
+            time=time+" am";
+        }
+
+
+        if(messageContent && stompClient) {
+            var chatMessage = {
+                content: messageInput.value,
+                sender: sender,
+                receiver: receiver,
+                regdate: time,
+            };
+            stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+            messageInput.value = '';
+        }
+        event.preventDefault();
+    }
+
+
+    function onMessageReceived(payload) {
+        var message = JSON.parse(payload.body);
+        var rightSectionScrollBar=document.querySelector('.mCSB_dragger_bar');
+
+        var liElement=document.createElement('li');
+        console.log("onMessageReceived:"+sender+" message.sender:"+message.sender);
+         if(sender=='client'){
+             if(message.sender=='client'){
+                 liElement.classList.add('msg-left');
+             }else{
+                 liElement.classList.add('msg-right');
+             }
+         }else {
+             if(message.sender=='client'){
+                 liElement.classList.add('msg-right');
+             }else{
+                 liElement.classList.add('msg-left');
+             }
+
+         }
+
+        var msgLeftSubDivElement=document.createElement('div');
+        msgLeftSubDivElement.classList.add('msg-left-sub');
+        liElement.appendChild(msgLeftSubDivElement);
+
+        var imgElement=document.createElement('img');
+        imgElement.src='../images/man.png';
+        imgElement.classList.add('mCS_img_loaded');
+        var msgDescElement=document.createElement('div');
+        msgDescElement.classList.add('msg-desc');
+        var msgDescTextNode=document.createTextNode(message.content);
+        msgDescElement.appendChild(msgDescTextNode);
+
+        var smallElement=document.createElement('small');
+        var smallTextNoe=document.createTextNode(message.regdate);
+        smallElement.appendChild(smallTextNoe);
+
+        msgLeftSubDivElement.appendChild(imgElement);
+        msgLeftSubDivElement.appendChild(msgDescElement);
+        msgLeftSubDivElement.appendChild(smallElement);
+
+        MessageArea.appendChild(liElement);
+        MessageArea.scrollTop=MessageArea.scrollHeight;
+
+    }
+
+
+    function getAvatarColor(messageSender) {
+        var hash = 0;
+        for (var i = 0; i < messageSender.length; i++) {
+            hash = 31 * hash + messageSender.charCodeAt(i);
+        }
+        var index = Math.abs(hash % colors.length);
+        return colors[index];
+    }
+    sendButton.addEventListener("click", saveMessage);
+    function saveMessage(){
+        console.log("에이젝스");
+        $.ajax({
+            url: '../message',
+            method: 'POST',
+            data: {
+                content:messageInput.value,
+                sender:sender,
+                receiver:receiver,
+                regdate:new Date().toString()
+            },
+            success: function(data){
+                console.log("데이터 출력:"+data);
+                //  window.location.replace("/");
+            },
+            error : function(error) {
+                console.log("Error!");
+            },
+            complete : function() {
+                console.log("complete!");
+                //   window.location.replace("/");
+            }
+        })
+    }
+
+
+    document.querySelector('.message-input').addEventListener('keypress',function(e){
+        if(e.key==='Enter'){
+            sendMessage(e);
+        }
+    });
+
+    sendButton.addEventListener('click', sendMessage, true)
+  //  chatList();
+</script>
+</body>
+</html>

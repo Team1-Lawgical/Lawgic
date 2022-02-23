@@ -29,7 +29,7 @@
     <div class="body-section">
         <div class="left-section mCustomScrollbar" data-mcs-theme="minimal-dark">
             <ul class="lawyer-list">
-                <li name="chatList" th:if="${dto.lawyerId} == ${chatLawyer.lawyerId}" class="active" th:each="dto: ${lawyerDTO}">
+                <li name="chatList" th:if="${dto.lawyerId} == ${chatLawyer.lawyerId}" class="active" th:each="dto: ${DTO}">
                     <div class="chatList">
                         <div class="img">
                             <i class="fa fa-circle"></i>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 </li>
-                <li name="chatList" th:unless="${dto.lawyerId} == ${chatLawyer.lawyerId}" th:each="dto: ${lawyerDTO}">
+                <li name="chatList" th:unless="${dto.lawyerId} == ${chatLawyer.lawyerId}" th:each="dto: ${DTO}">
                     <div class="chatList">
                         <div class="img">
                             <i class="fa fa-circle"></i>
@@ -89,7 +89,7 @@
     'use strict';
     var sender=[[${sender}]];
     var receiver=[[${receiver}]];
-    var lawyerDto=[[${lawyerDTO}]];
+    var lawyerDto=[[${DTO}]];
 
 
     //var message=[[${message}]];
@@ -304,6 +304,33 @@
         var index = Math.abs(hash % colors.length);
         return colors[index];
     }
+    sendButton.addEventListener("click", saveMessage);
+    function saveMessage(){
+        console.log("에이젝스");
+        $.ajax({
+            url: '../message',
+            method: 'POST',
+            data: {
+                content:messageInput.value,
+                sender:sender,
+                receiver:receiver,
+                regdate:new Date().toString()
+            },
+            success: function(data){
+                console.log("데이터 출력:"+data);
+                //  window.location.replace("/");
+            },
+            error : function(error) {
+                console.log("Error!");
+            },
+            complete : function() {
+                console.log("complete!");
+                //   window.location.replace("/");
+            }
+        })
+    }
+
+
     document.querySelector('.message-input').addEventListener('keypress',function(e){
         if(e.key==='Enter'){
             sendMessage(e);

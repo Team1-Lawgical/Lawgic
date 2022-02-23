@@ -8,6 +8,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Data
 @ToString
 public class ClientDTO {
     private Long clientId;
