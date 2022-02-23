@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -47,5 +48,9 @@ public class ClientRepositoryTest {
             clientRepository.save(client);
 
         });
+    }
+    @Test
+    public void getAllClientsTest(){
+
     }
 }

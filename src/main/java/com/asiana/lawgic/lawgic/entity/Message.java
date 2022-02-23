@@ -16,5 +16,7 @@ public class Message extends BaseEntity{
 
     private String sender;
 
+    private String receiver;
+
     private MessageType type;
 }

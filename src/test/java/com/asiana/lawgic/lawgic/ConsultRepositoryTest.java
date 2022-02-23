@@ -57,4 +57,9 @@ public class ConsultRepositoryTest {
 
         });
     }
+    @Test
+    public void getConsultByLawyerAndClientIdTest(){
+        Consult consult=consultRepository.getConsultByLawyerAndClientId(6L,1L);
+        System.out.println("consult:"+consult.getConsultId());
+    }
 }

@@ -10,13 +10,18 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Data
 @ToString
 public class MessageDTO {
     private String content;
 
     private String sender;
 
+    private String receiver;
+
+    private String regdate;
+
     private MessageType type;
 
-    private Date date;
+
 }
