@@ -1,33 +1,130 @@
 package com.asiana.lawgic.lawgic.service;
 
+import com.asiana.lawgic.lawgic.config.ModelMapperConfig;
 import com.asiana.lawgic.lawgic.dto.ClientDTO;
+import com.asiana.lawgic.lawgic.dto.LawyerDTO;
 import com.asiana.lawgic.lawgic.dto.MessageDTO;
-import com.asiana.lawgic.lawgic.entity.CarType;
-import com.asiana.lawgic.lawgic.entity.Message;
+import com.asiana.lawgic.lawgic.entity.*;
+import com.asiana.lawgic.lawgic.repository.ChatRepository;
+import com.asiana.lawgic.lawgic.repository.ClientRepository;
+import com.asiana.lawgic.lawgic.repository.ConsultRepository;
+import com.asiana.lawgic.lawgic.repository.LawyerRepository;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+@RequiredArgsConstructor
 @Service
-public class ChatServiceImpl implements ChatService{
-    public ClientDTO getClientInfo(){
-        ClientDTO clientDTO=ClientDTO.builder().clientId(1L)
-                .address("경기도")
-                .birthday(Date.valueOf("1995-03-16"))
-                .carType(CarType.CITY_CAR)
-                .email("youngkyon1324@naver.com")
-                .name("유영균")
-                .phone("010-3058-8541")
-                .build();
-        return clientDTO;
+public class ChatServiceImpl implements ChatService {
+    final private LawyerRepository lawyerRepository;
+    final private ConsultRepository consultRepository;
+    final private ChatRepository chatRepository;
+    final private ClientRepository clientRepository;
+
+    public List<LawyerDTO> getAllLawyers() {
+        ModelMapper mapper = ModelMapperConfig.getModelMapperInstance();
+
+        Object[] lawyers = lawyerRepository.getAllLawyers();
+        List<Lawyer> lawyerList = new ArrayList<>();
+        List<LawyerDTO> lawyerDTOList = new ArrayList<>();
+        for (Object o : lawyers) {
+            lawyerList.add((Lawyer) o);
+        }
+
+        for (Lawyer lawyerEntity : lawyerList) {
+            LawyerDTO lawyerDTO = mapper.map(lawyerEntity, LawyerDTO.class);
+            lawyerDTOList.add(lawyerDTO);
+        }
+
+        return lawyerDTOList;
 
     }
-    public MessageDTO getClientMessage(){
-        MessageDTO messageDTO=MessageDTO.builder()
+
+    @Override
+    public List<ClientDTO> getClientsByLawyerId(Long lawyerId) {
+        ModelMapper mapper = ModelMapperConfig.getModelMapperInstance();
+
+        Object[] clients = consultRepository.getClientsByLawyerId(lawyerId);
+        List<Client> clientList = new ArrayList<>();
+        List<ClientDTO> clientDTOList = new ArrayList<>();
+        for (Object o : clients) {
+            clientList.add((Client) o);
+        }
+
+
+        for (Client clientEntity : clientList) {
+            ClientDTO clientDTO = mapper.map(clientEntity, ClientDTO.class);
+            clientDTOList.add(clientDTO);
+        }
+
+        return clientDTOList;
+    }
+
+    @Override
+    public List<LawyerDTO> getLawyersByClientId(Long clientId) {
+        ModelMapper mapper = ModelMapperConfig.getModelMapperInstance();
+
+        Object[] lawyers = consultRepository.getLawyersByClientId(clientId);
+        List<Lawyer> lawyerList = new ArrayList<>();
+        List<LawyerDTO> lawyerDTOList = new ArrayList<>();
+        for (Object o : lawyers) {
+            lawyerList.add((Lawyer) o);
+        }
+
+        for (Lawyer lawyerEntity : lawyerList) {
+            LawyerDTO lawyerDTO = mapper.map(lawyerEntity, LawyerDTO.class);
+            lawyerDTOList.add(lawyerDTO);
+        }
+
+        return lawyerDTOList;
+    }
+
+    public MessageDTO getClientMessage() {
+        MessageDTO messageDTO = MessageDTO.builder()
                 .content("내용 1")
                 .sender("Client")
-                .date(Date.valueOf("2022-03-12"))
+                .regdate("2022-03-12")
                 .build();
         return messageDTO;
     }
+
+    @Override
+    public Consult getConsultByLawyerAndClientId(Long lawyerId, Long clientID) {
+        Consult consult = consultRepository.getConsultByLawyerAndClientId(lawyerId, clientID);
+        return consult;
+    }
+
+    @Override
+    public List<MessageDTO> getMessageByChatId(Long chatId) {
+        ModelMapper mapper = ModelMapperConfig.getModelMapperInstance();
+        Chat chat = chatRepository.getMessagesByChatId(21L);
+        List<Message> messages = chat.getMessages();
+        List<MessageDTO> messageDTOList = new ArrayList<>();
+        for (Message m : messages) {
+            MessageDTO messageDTO = mapper.map(messages, MessageDTO.class);
+            messageDTOList.add(messageDTO);
+        }
+
+
+        return messageDTOList;
+    }
+
+    @Override
+    public Long getChatId(Consult consult) {
+        Long chatId = chatRepository.getChatIdByLawyerAndClientId(consult.getLawyer().getLawyerId(), consult.getClient().getClientId());
+        return chatId;
+    }
+
+    @Override
+    public void saveMessage(MessageDTO messageDTO) {
+        ModelMapper mapper=ModelMapperConfig.getModelMapperInstance();
+        Message message=mapper.map(messageDTO, Message.class);
+
+    }
+
+
 }

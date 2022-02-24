@@ -3,16 +3,21 @@ package com.asiana.lawgic.lawgic.controller;
 import com.asiana.lawgic.lawgic.dto.ClientDTO;
 import com.asiana.lawgic.lawgic.dto.LawyerDTO;
 import com.asiana.lawgic.lawgic.dto.MessageDTO;
+import com.asiana.lawgic.lawgic.entity.Consult;
 import com.asiana.lawgic.lawgic.service.ChatService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+
 @RequiredArgsConstructor
 @Controller
 public class ChatController {
@@ -20,30 +25,38 @@ public class ChatController {
     final private ChatService chatService;
     final private SimpMessagingTemplate simpMessagingTemplate;
 
+
+    // @GetMapping("/chat/client/{id}")
     @GetMapping("/chat/client")
+    // public String mainClientChatController(Model model, @RequestParam Long id){
     public String mainClientChatController(Model model){
-        //service에서 clientDTO를 얻어오는 코드가 있다는 가정
-        ClientDTO clientDTO=chatService.getClientInfo();
-        MessageDTO messageDTO=chatService.getClientMessage();
-        model.addAttribute("dto",clientDTO);
-        model.addAttribute("message",messageDTO);
+        List<LawyerDTO> lawyerDTOList=chatService.getLawyersByClientId(1L);
+        Consult consult=chatService.getConsultByLawyerAndClientId(6L,1L);
+        model.addAttribute("sender","client");
+        model.addAttribute("receiver","lawyer");
+        model.addAttribute("DTO",lawyerDTOList);
+        model.addAttribute("chatLawyer",consult.getLawyer());
 
-        return "chat/chat";
+
+        return "chat/chat_client";
     }
+    // @GetMapping("/chat/lawyer/{id}")
     @GetMapping("/chat/lawyer")
-    public String mainLawyerChatController(LawyerDTO lawyerDTO){
-
-        return "chat/chat";
+    public String mainLawyerChatController(Model model){
+        List<ClientDTO> clientDTOList=chatService.getClientsByLawyerId(6L);
+        Consult consult=chatService.getConsultByLawyerAndClientId(6L,1L);
+        model.addAttribute("sender","lawyer");
+        model.addAttribute("receiver","client");
+        model.addAttribute("DTO",clientDTOList);
+        model.addAttribute("chatClient",consult.getClient());
+        return "chat/chat_lawyer";
     }
 
     @GetMapping("/")
     public String mainClientChatController3(Model model){
-        //service에서 clientDTO를 얻어오는 코드가 있다는 가정
-        ClientDTO clientDTO=chatService.getClientInfo();
-        MessageDTO messageDTO=chatService.getClientMessage();
-        model.addAttribute("dto",clientDTO);
-        model.addAttribute("message",messageDTO);
-        return "chat/chat";
+        model.addAttribute("sender","lawyer");
+        model.addAttribute("receiver","client");
+        return "chat/test";
     }
 
 
@@ -54,12 +67,17 @@ public class ChatController {
     // 예를 들어 "/app/chat.sendMessage"인 메시지는 sendMessage()로 라우팅 되며
     // "/app/chat.addUser"인 메시지는 addUser()로 라우팅된다.
     @MessageMapping("/chat.sendMessage")
-     //@SendTo("/topic/public")
+    //@SendTo("/topic/public")
     public MessageDTO sendMessage(@Payload MessageDTO messageDTO){
-        System.out.println("sendMessage method!!!***");
-        System.out.println("message1:"+messageDTO.getContent());
-        System.out.println("sender1:"+messageDTO.getSender());
+//        System.out.println("sendMessage method!!!***");
+//        System.out.println("message1:"+messageDTO.getContent());
+        messageDTO.setSender(messageDTO.getSender().equals("lawyer")?"client":"lawyer");
         simpMessagingTemplate.convertAndSend("/topic/public",messageDTO);
         return messageDTO;
+    }
+    @PostMapping("/message")
+    public void saveMessage(@RequestBody MessageDTO messageDTO){
+        chatService.saveMessage(messageDTO);
+
     }
 }

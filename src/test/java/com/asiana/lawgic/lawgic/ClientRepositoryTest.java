@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -26,26 +27,37 @@ public class ClientRepositoryTest {
     private ClientRepository clientRepository;
 
 
+//    @Test
+//    public void clientInsertData() {
+//        IntStream.rangeClosed(1, 5).forEach(i -> {
+//
+//
+//            Client client = Client.builder()
+//                    .address(address[i - 1])
+//                    .birthday(java.sql.Date.valueOf(birthday[i - 1]))
+//                    .carType(carType[i - 1])
+//                    .email(email[i - 1])
+//                    .gender((Math.round(Math.random()) == 1L ? 1 : 0))
+//                    .name(name[i - 1])
+//                    .password(password[i - 1])
+//                    .phone(phone[i - 1])
+//                    .build();
+//            if(clientRepository==null){
+//                System.out.println("null 임");
+//            }
+//            clientRepository.save(client);
+//
+//        });
+//    }
+
     @Test
-    public void clientInsertData() {
-        IntStream.rangeClosed(1, 5).forEach(i -> {
-
-
-            Client client = Client.builder()
-                    .address(address[i - 1])
-                    .birthday(java.sql.Date.valueOf(birthday[i - 1]))
-                    .carType(carType[i - 1])
-                    .email(email[i - 1])
-                    .gender((Math.round(Math.random()) == 1L ? 1 : 0))
-                    .name(name[i - 1])
-                    .password(password[i - 1])
-                    .phone(phone[i - 1])
-                    .build();
-            if(clientRepository==null){
-                System.out.println("null 임");
-            }
-            clientRepository.save(client);
-
-        });
+    public void getClientByEmailTest(){
+        Optional<Client> result=clientRepository.findClientByEmail("young@naver.com");
+//        if(result.isPresent()){
+//            System.out.println("이미 존재하는 이메일");
+//        }else{
+//            System.out.println("사용가능한 이메일");
+//        }
+        System.out.println(result.toString());
     }
 }
