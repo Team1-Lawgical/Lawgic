@@ -122,16 +122,16 @@ public class ChatServiceImpl implements ChatService {
     @Override
     public void saveMessage(MessageDTO messageDTO) {
 
-        Chat chat=chatRepository.getMessagesByChatId(Long.valueOf(messageDTO.getChatId()));
-        List<Message> messages=chat.getMessages();
-        Message msg=Message.builder()
-                .content(messageDTO.getContent())
-                .sender(messageDTO.getSender())
-                .receiver(messageDTO.getReceiver())
-                .regDate(LocalDateTime.ofInstant(Instant.ofEpochMilli(System.currentTimeMillis()), ZoneId.of("Asia/Seoul")))
-                .build();
-        messages.add(msg);
-        chatRepository.save(chat);
+//        Chat chat=chatRepository.getMessagesByChatId(Long.valueOf(messageDTO.getChatId()));
+//        List<Message> messages=chat.getMessages();
+//        Message msg=Message.builder()
+//                .content(messageDTO.getContent())
+//                .sender(messageDTO.getSender())
+//                .receiver(messageDTO.getReceiver())
+//                .regDate(LocalDateTime.ofInstant(Instant.ofEpochMilli(System.currentTimeMillis()), ZoneId.of("Asia/Seoul")))
+//                .build();
+//        messages.add(msg);
+//        chatRepository.save(chat);
 
 
     }

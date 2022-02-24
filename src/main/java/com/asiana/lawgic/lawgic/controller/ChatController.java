@@ -90,7 +90,7 @@ public class ChatController {
 
     @MessageMapping("/chat.sendMessage")
     public MessageDTO sendMessage(@Payload MessageDTO messageDTO){
-        chatService.saveMessage(messageDTO);
+       // chatService.saveMessage(messageDTO);
         simpMessagingTemplate.convertAndSend("/topic/public",messageDTO);
         return messageDTO;
     }
