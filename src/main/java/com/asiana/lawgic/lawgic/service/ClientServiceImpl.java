@@ -5,21 +5,30 @@ import com.asiana.lawgic.lawgic.dto.ClientDTO;
 import com.asiana.lawgic.lawgic.entity.Client;
 import com.asiana.lawgic.lawgic.repository.ClientRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
-    private final ClientConverter clientConverter;
 
-    public ClientServiceImpl(ClientRepository clientRepository, ClientConverter clientConverter) {
+    public ClientServiceImpl(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
-        this.clientConverter = clientConverter;
+    }
+
+    public boolean emailExists(String inputEmail) {
+        Optional<Client> result = clientRepository.findClientByEmail("naver");
+        if (result.isPresent()) {
+            System.out.println("사용할 수 없는 이메일");
+            return true;
+        } else {
+            System.out.println("사용가능한 이메일");
+            return false;
+        }
     }
 
     @Override
-    @Transactional
     public ClientDTO getClientById(Long clientId) throws Exception {
         Client client = clientRepository.findById(clientId).orElseThrow(() -> new Exception("해당 id의 고객이 없습니다"));
         return ClientDTO.builder()
@@ -32,5 +41,10 @@ public class ClientServiceImpl implements ClientService {
                 .carType(client.getCarType())
                 .gender(client.getGender())
                 .build();
+        return null;
+    }
+
+    public void insertClient(ClientDTO clientDTO) {
+        
     }
 }

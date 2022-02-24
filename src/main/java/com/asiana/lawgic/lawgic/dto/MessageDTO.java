@@ -23,5 +23,7 @@ public class MessageDTO {
 
     private MessageType type;
 
+    private Long chatId;
+
 
 }

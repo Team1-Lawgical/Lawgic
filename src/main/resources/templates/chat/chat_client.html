@@ -92,7 +92,7 @@
     var lawyerDto=[[${DTO}]];
 
 
-    //var message=[[${message}]];
+
 
 
     var lawyerMessageArea=document.querySelector('.lawyer-message-area');
@@ -101,21 +101,10 @@
     var chatListArea=document.querySelector('.lawyer-list');
     //var messageInput = document.querySelector('.btn-send');
     var messageInput=document.querySelector('.message-input');
-    // console.log(dto);
-    // if(dto.hasOwnProperty('clientId')){
-    //     console.log("hello client");
-    // }
-    // if(dto.hasOwnProperty('lawyerId')){
-    //     console.log("hello lawyer");
-    //
-    // }
-    var usernamePage = document.querySelector('#username-page');
-    var chatPage = document.querySelector('#chat-page');
-    var usernameForm = document.querySelector('#usernameForm');
-    var messageForm = document.querySelector('#messageForm');
+    var chatId=[[${chatId}]];
+    console.log("chatId:"+chatId);
 
-    var messageArea = document.querySelector('#messageArea');
-    var connectingElement = document.querySelector('.connecting');
+
 
     var stompClient = null;
     var username = null;
@@ -132,70 +121,11 @@
 
 
     connect();
-    //
-    // function chatList(){
-    //     console.log(lawyerDto);
-    //     for(var dto in lawyerDto){
-    //         console.log(dto.name);
-    //         console.log(dto.name.toString());
-    //
-    //         var chatListArea = document.createElement('li');
-    //
-    //         var chatListElement=document.createElement('div');
-    //         chatListElement.classList.add('chatList');
-    //         var imgElement=document.createElement('div');
-    //         imgElement.classList.add('img');
-    //         chatListElement.appendChild(imgElement);
-    //
-    //         var iElement=document.createElement('i');
-    //         iElement.classList.add(".fa.fa-circle");
-    //         var imageElement=document.createElement('img');
-    //         imageElement.src="../images/man.png";
-    //         imgElement.appendChild(iElement);
-    //         imgElement.appendChild(imageElement);
-    //
-    //         var descElement=document.createElement('div');
-    //         descElement.classList.add("desc");
-    //
-    //         var smallTimeElement=document.createElement('small');
-    //         smallTimeElement.classList.add('time');
-    //         var smallTimeText=document.createTextNode(new Date().toString());
-    //         smallTimeElement.appendChild(smallTimeText);
-    //         smallTimeElement.classList.add("time");
-    //
-    //         var h5Element=document.createElement('h5');
-    //         var h5Text=document.createTextNode(dto.name);
-    //         h5Element.appendChild(h5Text);
-    //         var smallElement=document.createElement('small');
-    //         var smallText=document.createTextNode("상담 종료");
-    //         smallTimeElement.appendChild(smallText);
-    //
-    //         descElement.appendChild(smallTimeElement);
-    //         descElement.appendChild(h5Element);
-    //         descElement.appendChild(smallElement);
-    //
-    //         chatListElement.appendChild(descElement);
-    //
-    //         chatListArea.appendChild(chatListElement);
-    //     }
-    //
-    //
-    //
-    // }
-
     function connect(event) {
-        // username = document.querySelector('#name').value.trim();
-        //
-        // if(username) {
-           // usernamePage.classList.add('hidden');
-           // chatPage.classList.remove('hidden');
-
             var socket = new SockJS('/ws');
             stompClient = Stomp.over(socket);
 
             stompClient.connect({}, onConnected, onError);
-      //  }
-       // event.preventDefault();
     }
 
 
@@ -306,15 +236,16 @@
     }
     sendButton.addEventListener("click", saveMessage);
     function saveMessage(){
-        console.log("에이젝스");
+
         $.ajax({
-            url: '../message',
+            url: '../../message',
             method: 'POST',
             data: {
-                content:messageInput.value,
-                sender:sender,
-                receiver:receiver,
-                regdate:new Date().toString()
+                content:"내용",
+                sender:"보내기",
+                receiver:"리시버",
+                regdate:new Date().toString(),
+                chatId: chatId
             },
             success: function(data){
                 console.log("데이터 출력:"+data);

@@ -84,14 +84,7 @@ public class ChatServiceImpl implements ChatService {
         return lawyerDTOList;
     }
 
-    public MessageDTO getClientMessage() {
-        MessageDTO messageDTO = MessageDTO.builder()
-                .content("내용 1")
-                .sender("Client")
-                .regdate("2022-03-12")
-                .build();
-        return messageDTO;
-    }
+
 
     @Override
     public Consult getConsultByLawyerAndClientId(Long lawyerId, Long clientID) {
@@ -120,8 +113,8 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public void saveMessage(MessageDTO messageDTO) {
-        ModelMapper mapper = ModelMapperConfig.getModelMapperInstance();
-        Message message = mapper.map(messageDTO, Message.class);
+        ModelMapper mapper=ModelMapperConfig.getModelMapperInstance();
+        Message message=mapper.map(messageDTO, Message.class);
     }
 
 }
