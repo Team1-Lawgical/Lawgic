@@ -12,7 +12,6 @@ public interface ChatService {
     public List<LawyerDTO> getAllLawyers();
     public List<ClientDTO> getClientsByLawyerId(Long lawyerId);
     public List<LawyerDTO> getLawyersByClientId(Long clientID);
-    public MessageDTO getClientMessage();
     public Consult getConsultByLawyerAndClientId(Long lawyerId, Long clientID);
     public List<MessageDTO> getMessageByChatId(Long chatId);
     public Long getChatId(Consult consult);

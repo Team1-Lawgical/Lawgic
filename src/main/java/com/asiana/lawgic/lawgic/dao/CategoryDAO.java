@@ -7,5 +7,5 @@ import java.util.Collection;
 
 public interface CategoryDAO {
     public Collection<Lawyer> getAllLawyers() throws SQLException;
-    public Collection<Lawyer> getLawyersByCategoryId(int category_id) throws SQLException;
+
 }
