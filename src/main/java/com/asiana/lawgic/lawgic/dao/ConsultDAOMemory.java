@@ -1,7 +1,5 @@
 package com.asiana.lawgic.lawgic.dao;
 
-import com.asiana.lawgic.lawgic.vo.ConsultVO;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +17,6 @@ public class ConsultDAOMemory implements ConsultDAO {
         conn = DatabaseConnection.getConnection();
     }
 
-    @Override
     public String getClientById(Long clientId) throws SQLException {
         sql = "SELECT client_name, client_birthday, client_address, client_phone " +
                 "FROM client " +

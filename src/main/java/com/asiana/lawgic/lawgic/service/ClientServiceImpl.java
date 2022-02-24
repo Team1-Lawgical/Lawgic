@@ -28,7 +28,6 @@ public class ClientServiceImpl implements ClientService {
         }
     }
 
-    @Override
     public ClientDTO getClientById(Long clientId) throws Exception {
         Client client = clientRepository.findById(clientId).orElseThrow(() -> new Exception("해당 id의 고객이 없습니다"));
         return ClientDTO.builder()
@@ -41,10 +40,9 @@ public class ClientServiceImpl implements ClientService {
                 .carType(client.getCarType())
                 .gender(client.getGender())
                 .build();
-        return null;
     }
 
     public void insertClient(ClientDTO clientDTO) {
-        
+
     }
 }
