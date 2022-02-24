@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35c236d6-7585-49a3-87e3-2fd4c67da491" name="Changes" comment="날릴겁니다">
-      <change afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/dao/ConsultDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/vo/ConsultVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
+    <list default="true" id="35c236d6-7585-49a3-87e3-2fd4c67da491" name="Changes" comment="consultVO, consultDAO 복구">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -28,28 +23,48 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="25UGB65aM1OGNHdc73bvFUKXLAy" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/vo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/js/client" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Lawgic\src\main\resources\static\js\client" />
       <recent name="C:\Lawgic\src\main\java\com\asiana\lawgic\lawgic\vo" />
       <recent name="C:\Lawgic\src\main\java\com\asiana\lawgic\lawgic\dao" />
       <recent name="C:\Lawgic\out" />
       <recent name="C:\Lawgic\src\test\java\com\asiana\lawgic\lawgic" />
-      <recent name="C:\Lawgic\src\main\resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -78,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645665279137</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="consultVO, consultDAO 복구">
+      <created>1645669581611</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1645669581611</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,6 +116,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="날릴겁니다" />
-    <option name="LAST_COMMIT_MESSAGE" value="날릴겁니다" />
+    <MESSAGE value="consultVO, consultDAO 복구" />
+    <option name="LAST_COMMIT_MESSAGE" value="consultVO, consultDAO 복구" />
   </component>
 </project>
