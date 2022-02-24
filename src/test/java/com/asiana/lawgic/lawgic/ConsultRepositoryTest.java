@@ -1,5 +1,6 @@
 package com.asiana.lawgic.lawgic;
 
+import com.asiana.lawgic.lawgic.dto.ClientDTO;
 import com.asiana.lawgic.lawgic.entity.CarType;
 import com.asiana.lawgic.lawgic.entity.Client;
 import com.asiana.lawgic.lawgic.entity.Consult;
@@ -56,5 +57,24 @@ public class ConsultRepositoryTest {
             consultRepository.save(consult);
 
         });
+    }
+    @Test
+    public void getConsultByLawyerAndClientIdTest(){
+        Consult consult=consultRepository.getConsultByLawyerAndClientId(6L,1L);
+        System.out.println("consult:"+consult.getConsultId());
+    }
+    @Test
+    public void getLawyersByClientId(){
+        Object[] lawyers=consultRepository.getLawyersByClientId(1L);
+        for(Object o:lawyers){
+            System.out.println(((Lawyer)o).getName());
+        }
+    }
+    @Test
+    public void getClientsByLawyerId(){
+        Object[] clients=consultRepository.getClientsByLawyerId(6L);
+        for(Object o:clients){
+            System.out.println(((Client)o).getName());
+        }
     }
 }

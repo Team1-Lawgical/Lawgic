@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Optional;
+import java.util.List;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -59,5 +60,9 @@ public class ClientRepositoryTest {
 //            System.out.println("사용가능한 이메일");
 //        }
         System.out.println(result.toString());
+    }
+    @Test
+    public void getAllClientsTest(){
+
     }
 }

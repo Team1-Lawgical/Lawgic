@@ -51,4 +51,18 @@ public class ChatRepositoryTest {
 
     }
 
+    @Test
+    public void getChatIdTest() {
+        Long chatId=chatRepository.getChatIdByLawyerAndClientId(6L, 1L);
+        System.out.println("chatId:"+chatId);
+    }
+
+    @Test
+    public void getMessageByChatIdTest(){
+        Chat chat=chatRepository.getMessagesByChatId(21L);
+        System.out.println(chat.getMessages().get(0).getContent());
+    }
+
+
+
 }

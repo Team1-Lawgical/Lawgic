@@ -1,5 +1,6 @@
 package com.asiana.lawgic.lawgic.service;
 
+import com.asiana.lawgic.lawgic.converter.ClientConverter;
 import com.asiana.lawgic.lawgic.dto.ClientDTO;
 import com.asiana.lawgic.lawgic.entity.Client;
 import com.asiana.lawgic.lawgic.repository.ClientRepository;
@@ -17,7 +18,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     public boolean emailExists(String inputEmail) {
-        Optional<Client> result=clientRepository.findClientByEmail("naver");
+        Optional<Client> result = clientRepository.findClientByEmail("naver");
         if (result.isPresent()) {
             System.out.println("사용할 수 없는 이메일");
             return true;
@@ -27,9 +28,13 @@ public class ClientServiceImpl implements ClientService {
         }
     }
 
+    @Override
+    public ClientDTO getClientById(Long clientId) throws Exception {
+        return null;
+    }
+
     public void insertClient(ClientDTO clientDTO) {
 
 
     }
-
 }

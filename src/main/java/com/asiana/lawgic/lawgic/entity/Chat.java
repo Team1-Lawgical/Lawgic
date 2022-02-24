@@ -19,7 +19,7 @@ public class Chat {
     private Long chatId;
 
     @CollectionTable(name = "message", joinColumns = @JoinColumn(name = "chat_id"))
-    @ElementCollection(fetch= FetchType.LAZY)
+    @ElementCollection(fetch= FetchType.EAGER)
     List<Message> messages=new ArrayList<>();
 
     @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.REMOVE )

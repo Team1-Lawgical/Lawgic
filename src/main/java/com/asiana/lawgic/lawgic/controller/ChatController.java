@@ -26,9 +26,9 @@ public class ChatController {
     final private SimpMessagingTemplate simpMessagingTemplate;
 
 
-    // @GetMapping("/chat/client/{id}")
+   // @GetMapping("/chat/client/{id}")
     @GetMapping("/chat/client")
-    // public String mainClientChatController(Model model, @RequestParam Long id){
+   // public String mainClientChatController(Model model, @RequestParam Long id){
     public String mainClientChatController(Model model){
         List<LawyerDTO> lawyerDTOList=chatService.getLawyersByClientId(1L);
         Consult consult=chatService.getConsultByLawyerAndClientId(6L,1L);
@@ -67,7 +67,7 @@ public class ChatController {
     // 예를 들어 "/app/chat.sendMessage"인 메시지는 sendMessage()로 라우팅 되며
     // "/app/chat.addUser"인 메시지는 addUser()로 라우팅된다.
     @MessageMapping("/chat.sendMessage")
-    //@SendTo("/topic/public")
+     //@SendTo("/topic/public")
     public MessageDTO sendMessage(@Payload MessageDTO messageDTO){
 //        System.out.println("sendMessage method!!!***");
 //        System.out.println("message1:"+messageDTO.getContent());
