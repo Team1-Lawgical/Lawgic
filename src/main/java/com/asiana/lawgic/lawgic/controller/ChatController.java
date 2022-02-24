@@ -25,75 +25,76 @@ public class ChatController {
 
     @GetMapping("/chat/client?id={id}")
     public String clientChatController(Model model, @PathVariable("id") String id) {
-        List<LawyerDTO> lawyerDTOList=chatService.getLawyersByClientId(46L);
-        Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
-        model.addAttribute("sender","client");
-        model.addAttribute("receiver","lawyer");
-        model.addAttribute("DTO",lawyerDTOList);
-        model.addAttribute("chatLawyer",consult.getLawyer());
-        model.addAttribute("chatId",id);
+        List<LawyerDTO> lawyerDTOList = chatService.getLawyersByClientId(46L);
+        Consult consult = chatService.getConsultByLawyerAndClientId(51L, 46L);
+        model.addAttribute("sender", "client");
+        model.addAttribute("receiver", "lawyer");
+        model.addAttribute("DTO", lawyerDTOList);
+        model.addAttribute("chatLawyer", consult.getLawyer());
+        model.addAttribute("chatId", id);
         return "chat/chat_client";
     }
-    @GetMapping("/chat/client")
 
-    public String defaultClientChatController(Model model){
-        List<LawyerDTO> lawyerDTOList=chatService.getLawyersByClientId(46L);
-        Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
-        model.addAttribute("sender","client");
-        model.addAttribute("receiver","lawyer");
-        model.addAttribute("DTO",lawyerDTOList);
-        model.addAttribute("chatLawyer",consult.getLawyer());
+    @GetMapping("/chat/client")
+    public String defaultClientChatController(Model model) {
+        List<LawyerDTO> lawyerDTOList = chatService.getLawyersByClientId(46L);
+        Consult consult = chatService.getConsultByLawyerAndClientId(51L, 46L);
+        model.addAttribute("sender", "client");
+        model.addAttribute("receiver", "lawyer");
+        model.addAttribute("DTO", lawyerDTOList);
+        model.addAttribute("chatLawyer", consult.getLawyer());
 
         return "chat/chat_client";
     }
 
     @GetMapping("/chat/lawyer?id={id}")
-    public String lawyerChatController(Model model, @RequestParam Long id){
-        List<ClientDTO> clientDTOList=chatService.getClientsByLawyerId(51L);
-        Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
-        model.addAttribute("sender","lawyer");
-        model.addAttribute("receiver","client");
-        model.addAttribute("DTO",clientDTOList);
-        model.addAttribute("chatClient",consult.getClient());
-        model.addAttribute("chatId",id);
+    public String lawyerChatController(Model model, @RequestParam Long id) {
+        List<ClientDTO> clientDTOList = chatService.getClientsByLawyerId(51L);
+        Consult consult = chatService.getConsultByLawyerAndClientId(51L, 46L);
+        model.addAttribute("sender", "lawyer");
+        model.addAttribute("receiver", "client");
+        model.addAttribute("DTO", clientDTOList);
+        model.addAttribute("chatClient", consult.getClient());
+        model.addAttribute("chatId", id);
         return "chat/chat_lawyer";
     }
 
     @GetMapping("/chat/lawyer")
-    public String defaultLawyerChatController(Model model){
-        List<ClientDTO> clientDTOList=chatService.getClientsByLawyerId(51L);
-        Consult consult=chatService.getConsultByLawyerAndClientId(51L,47L);
-        model.addAttribute("sender","lawyer");
-        model.addAttribute("receiver","client");
-        model.addAttribute("DTO",clientDTOList);
-        model.addAttribute("chatClient",consult.getClient());
+    public String defaultLawyerChatController(Model model) {
+        List<ClientDTO> clientDTOList = chatService.getClientsByLawyerId(51L);
+        Consult consult = chatService.getConsultByLawyerAndClientId(51L, 47L);
+        model.addAttribute("sender", "lawyer");
+        model.addAttribute("receiver", "client");
+        model.addAttribute("DTO", clientDTOList);
+        model.addAttribute("chatClient", consult.getClient());
         return "chat/chat_lawyer";
     }
 
     @GetMapping("/")
-    public String mainClientChatController3(Model model){
-        model.addAttribute("sender","lawyer");
-        model.addAttribute("receiver","client");
+    public String mainClientChatController3(Model model) {
+        model.addAttribute("sender", "lawyer");
+        model.addAttribute("receiver", "client");
         return "chat/test";
     }
 
 
     @MessageMapping("/chat.sendMessage")
-    public MessageDTO sendMessage(@Payload MessageDTO messageDTO){
-        System.out.println("content:"+messageDTO.getContent());
-        System.out.println("sender:"+messageDTO.getSender());
-        System.out.println("receiver:"+messageDTO.getReceiver());
-        System.out.println("regdate:"+messageDTO.getRegdate());
-        System.out.println("id:"+messageDTO.getChatId());
+    public MessageDTO sendMessage(@Payload MessageDTO messageDTO) {
+        System.out.println("content:" + messageDTO.getContent());
+        System.out.println("sender:" + messageDTO.getSender());
+        System.out.println("receiver:" + messageDTO.getReceiver());
+        System.out.println("regdate:" + messageDTO.getRegdate());
+        System.out.println("id:" + messageDTO.getChatId());
         chatService.saveMessage(messageDTO);
-        simpMessagingTemplate.convertAndSend("/topic/public",messageDTO);
+        simpMessagingTemplate.convertAndSend("/topic/public", messageDTO);
         return messageDTO;
     }
+
     @PostMapping("/message")
-    public void saveMessage(@RequestBody MessageDTO messageDTO){
-        System.out.println("content:"+messageDTO.getContent());
-        System.out.println("sender:"+messageDTO.getSender());
-        System.out.println("receiver:"+messageDTO.getReceiver());
-        System.out.println("regdate:"+messageDTO.getRegdate());
+    public void saveMessage(@RequestBody MessageDTO messageDTO) {
+        System.out.println("content:" + messageDTO.getContent());
+        System.out.println("sender:" + messageDTO.getSender());
+        System.out.println("receiver:" + messageDTO.getReceiver());
+        System.out.println("regdate:" + messageDTO.getRegdate());
     }
 }

@@ -25,7 +25,7 @@ public class ClientController {
 //        return "/client/login";
 //    }
 
-    @GetMapping("/")
+    @GetMapping("/client")
     public String login(String email, String password) {
 
         return "client/login";

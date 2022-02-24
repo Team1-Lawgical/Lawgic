@@ -1,5 +1,7 @@
 package com.asiana.lawgic.lawgic.dao;
 
+import com.asiana.lawgic.lawgic.vo.ConsultVO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

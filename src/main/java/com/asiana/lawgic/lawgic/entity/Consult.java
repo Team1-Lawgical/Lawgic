@@ -9,6 +9,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Data
 @ToString
 @Entity
 public class Consult {

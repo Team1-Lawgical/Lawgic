@@ -28,11 +28,14 @@ public class ConsultServiceImpl implements ConsultService {
 
     @Override
     @Transactional
-    public Consult insertConsult(ConsultDTO consultDTO) throws Exception {
+    public void insertConsult(ConsultDTO consultDTO) throws Exception {
         getLawyerById(consultDTO.getClientId());
         getClientById(consultDTO.getLawyerId());
+        if (consultDTO.getLawyerId() == null || consultDTO.getClientId() == null) {
+            System.out.println("로이어 아이디랑 고객 아이디 중에 하나가 null");
+        }
         Consult consult = converter.convertToConsult(consultDTO);
-        return consultRepository.save(consult);
+        consultRepository.save(consult);
     }
 
     @Transactional
