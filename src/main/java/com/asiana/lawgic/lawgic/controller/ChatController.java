@@ -3,9 +3,12 @@ package com.asiana.lawgic.lawgic.controller;
 import com.asiana.lawgic.lawgic.dto.ClientDTO;
 import com.asiana.lawgic.lawgic.dto.LawyerDTO;
 import com.asiana.lawgic.lawgic.dto.MessageDTO;
+import com.asiana.lawgic.lawgic.entity.Chat;
 import com.asiana.lawgic.lawgic.entity.Consult;
+import com.asiana.lawgic.lawgic.entity.Message;
 import com.asiana.lawgic.lawgic.service.ChatService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -23,15 +26,22 @@ public class ChatController {
     final private SimpMessagingTemplate simpMessagingTemplate;
 
 
-    @GetMapping("/chat/client?id={id}")
+    @GetMapping("/chat/client/{id}")
     public String clientChatController(Model model, @PathVariable("id") String id) {
         List<LawyerDTO> lawyerDTOList=chatService.getLawyersByClientId(46L);
         Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
+        List<MessageDTO> messages=chatService.getMessageByChatId(Long.valueOf(id));
         model.addAttribute("sender","client");
         model.addAttribute("receiver","lawyer");
         model.addAttribute("DTO",lawyerDTOList);
         model.addAttribute("chatLawyer",consult.getLawyer());
         model.addAttribute("chatId",id);
+        model.addAttribute("pastMessages",messages);
+        for(MessageDTO m:messages){
+            System.out.println(m.getContent());
+            System.out.println(m.getRegDate());
+        }
+
         return "chat/chat_client";
     }
     @GetMapping("/chat/client")
@@ -42,12 +52,12 @@ public class ChatController {
         model.addAttribute("receiver","lawyer");
         model.addAttribute("DTO",lawyerDTOList);
         model.addAttribute("chatLawyer",consult.getLawyer());
-
+        System.out.println("여기여기22");
         return "chat/chat_client";
     }
 
-    @GetMapping("/chat/lawyer?id={id}")
-    public String lawyerChatController(Model model, @RequestParam Long id){
+    @GetMapping("/chat/lawyer/{id}")
+    public String lawyerChatController(Model model, @PathVariable("id") Long id){
         List<ClientDTO> clientDTOList=chatService.getClientsByLawyerId(51L);
         Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
         model.addAttribute("sender","lawyer");
@@ -80,20 +90,17 @@ public class ChatController {
 
     @MessageMapping("/chat.sendMessage")
     public MessageDTO sendMessage(@Payload MessageDTO messageDTO){
-        System.out.println("content:"+messageDTO.getContent());
-        System.out.println("sender:"+messageDTO.getSender());
-        System.out.println("receiver:"+messageDTO.getReceiver());
-        System.out.println("regdate:"+messageDTO.getRegdate());
-        System.out.println("id:"+messageDTO.getChatId());
         chatService.saveMessage(messageDTO);
         simpMessagingTemplate.convertAndSend("/topic/public",messageDTO);
         return messageDTO;
     }
-    @PostMapping("/message")
-    public void saveMessage(@RequestBody MessageDTO messageDTO){
-        System.out.println("content:"+messageDTO.getContent());
-        System.out.println("sender:"+messageDTO.getSender());
-        System.out.println("receiver:"+messageDTO.getReceiver());
-        System.out.println("regdate:"+messageDTO.getRegdate());
-    }
+//    @PostMapping("/message")
+//    public void saveMessage(@RequestBody MessageDTO messageDTO){
+//        System.out.println("여기 호출!!!");
+//        System.out.println("content:"+messageDTO.getContent());
+//        System.out.println("sender:"+messageDTO.getSender());
+//        System.out.println("receiver:"+messageDTO.getReceiver());
+//        System.out.println("regdate:"+messageDTO.getRegdate());
+//    }
+
 }

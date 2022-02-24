@@ -5,12 +5,12 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="../css/chat/chat.css" />
+    <link rel="stylesheet" href="/css/chat/chat.css" />
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<img id="logo-image" src="../images/logo.png" width="100" height="80" >
+<img id="logo-image" src="/images/logo.png" width="100" height="80" >
 <div class="main-section">
     <div class="head-section">
         <div class="headLeft-section">
@@ -33,8 +33,8 @@
                     <div class="chatList">
                         <div class="img">
                             <i class="fa fa-circle"></i>
-                            <img th:if="${dto.gender}" src="../images/man.png">
-                            <img th:unless="${dto.gender}" src="../images/woman.png">
+                            <img th:if="${dto.gender}" src="/images/man.png">
+                            <img th:unless="${dto.gender}" src="/images/woman.png">
                         </div>
                         <div class="desc">
                             <small class="time">05:30 am</small>
@@ -47,8 +47,8 @@
                     <div class="chatList">
                         <div class="img">
                             <i class="fa fa-circle"></i>
-                            <img th:if="${dto.gender}" src="../images/man.png">
-                            <img th:unless="${dto.gender}" src="../images/woman.png">
+                            <img th:if="${dto.gender}" src="/images/man.png">
+                            <img th:unless="${dto.gender}" src="/images/woman.png">
                         </div>
                         <div class="desc">
                             <small class="time">05:30 am</small>
@@ -62,7 +62,24 @@
         <div class="right-section">
             <div class="message mCustomScrollbar" data-mcs-theme="minimal-dark">
                 <ul class="client-message-area">
+<!--                    <li class="msg-right" th:each="msg: ${pastMessages}" th:if="${msg.sender=='client'}" >-->
+<!--                        <div class="msg-left-sub">-->
+<!--                            <img src="/images/man.png">-->
+<!--                            <div class="msg-desc" th:text="${msg.content}">-->
 
+<!--                            </div>-->
+<!--                            <small th:text="${msg.regDate}"></small>-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                    <li class="msg-left" th:each="msg: ${pastMessages}" th:unless="${msg.sender=='lawyer'}">-->
+<!--                        <div class="msg-left-sub">-->
+<!--                            <img src="/images/man.png">-->
+<!--                            <div class="msg-desc" th:text="${msg.content}">-->
+
+<!--                            </div>-->
+<!--                            <small th:text="${msg.regDate}"></small>-->
+<!--                        </div>-->
+<!--                    </li>-->
                 </ul>
             </div>
             <div class="right-section-bottom">
@@ -102,7 +119,6 @@
     //var messageInput = document.querySelector('.btn-send');
     var messageInput=document.querySelector('.message-input');
     var chatId=[[${chatId}]];
-    console.log("chatId:"+chatId);
 
 
 
@@ -170,12 +186,47 @@
                 content: messageInput.value,
                 sender: sender,
                 receiver: receiver,
-                regdate: time,
+                regDate: time,
+                chatId: chatId
             };
             stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
             messageInput.value = '';
         }
         event.preventDefault();
+    }
+    function pastMessage(){
+        var pmsg=[[${pastMessages}]];
+        for(var msg in pmsg){
+            if(pmsg.sender=='client'){
+                var liElement=document.createElement('li');
+                liElement.classList.add('msg-right');
+
+                var msgLeftSubDivElement=document.createElement('div');
+                msgLeftSubDivElement.classList.add('msg-left-sub');
+                liElement.appendChild(msgLeftSubDivElement);
+
+                var imgElement=document.createElement('img');
+                imgElement.src='/images/man.png';
+                imgElement.classList.add('mCS_img_loaded');
+                var msgDescElement=document.createElement('div');
+                msgDescElement.classList.add('msg-desc');
+                var msgDescTextNode=document.createTextNode(message.content);
+                msgDescElement.appendChild(msgDescTextNode);
+
+                var smallElement=document.createElement('small');
+                var smallTextNoe=document.createTextNode(message.regDate);
+                smallElement.appendChild(smallTextNoe);
+
+                msgLeftSubDivElement.appendChild(imgElement);
+                msgLeftSubDivElement.appendChild(msgDescElement);
+                msgLeftSubDivElement.appendChild(smallElement);
+
+                MessageArea.appendChild(liElement);
+                MessageArea.scrollTop=MessageArea.scrollHeight;
+            }
+
+        }
+
     }
 
 
@@ -184,7 +235,6 @@
         var rightSectionScrollBar=document.querySelector('.mCSB_dragger_bar');
 
         var liElement=document.createElement('li');
-        console.log("onMessageReceived:"+sender+" message.sender:"+message.sender);
          if(sender=='client'){
              if(message.sender=='client'){
                  liElement.classList.add('msg-left');
@@ -205,7 +255,7 @@
         liElement.appendChild(msgLeftSubDivElement);
 
         var imgElement=document.createElement('img');
-        imgElement.src='../images/man.png';
+        imgElement.src='/images/man.png';
         imgElement.classList.add('mCS_img_loaded');
         var msgDescElement=document.createElement('div');
         msgDescElement.classList.add('msg-desc');
@@ -213,7 +263,7 @@
         msgDescElement.appendChild(msgDescTextNode);
 
         var smallElement=document.createElement('small');
-        var smallTextNoe=document.createTextNode(message.regdate);
+        var smallTextNoe=document.createTextNode(message.regDate);
         smallElement.appendChild(smallTextNoe);
 
         msgLeftSubDivElement.appendChild(imgElement);
@@ -238,17 +288,14 @@
     function saveMessage(){
 
         $.ajax({
-            url: '../../message',
+            url: '/message',
             method: 'POST',
-            data: {
-                content:"내용",
-                sender:"보내기",
-                receiver:"리시버",
-                regdate:new Date().toString(),
-                chatId: chatId
-            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "text",
+            data: JSON.stringify ({
+                id:chatId
+            }),
             success: function(data){
-                console.log("데이터 출력:"+data);
                 //  window.location.replace("/");
             },
             error : function(error) {
@@ -256,6 +303,7 @@
             },
             complete : function() {
                 console.log("complete!");
+
                 //   window.location.replace("/");
             }
         })
@@ -267,7 +315,7 @@
             sendMessage(e);
         }
     });
-
+    pastMessage();
     sendButton.addEventListener('click', sendMessage, true)
   //  chatList();
 </script>

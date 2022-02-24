@@ -4,6 +4,7 @@ import com.asiana.lawgic.lawgic.entity.MessageType;
 import lombok.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Builder
@@ -19,11 +20,10 @@ public class MessageDTO {
 
     private String receiver;
 
-    private String regdate;
+    private String regDate;
 
-    private MessageType type;
 
-    private Long chatId;
+    private String chatId;
 
 
 }
