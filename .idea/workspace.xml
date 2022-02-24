@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c0f2e90-5eb1-4e80-bb89-fc9ba02f78de" name="Changes" comment="" />
+    <list default="true" id="35c236d6-7585-49a3-87e3-2fd4c67da491" name="Changes" comment="날릴겁니다" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,5 +61,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="날릴겁니다" />
+    <option name="LAST_COMMIT_MESSAGE" value="날릴겁니다" />
   </component>
 </project>
