@@ -23,6 +23,24 @@ public class ClientServiceImpl implements ClientService {
         return (result.isPresent()) ? "fail" : "ok";
     }
 
+<<<<<<< HEAD
+    public ClientDTO getClientById(Long clientId) throws Exception {
+        Client client = clientRepository.findById(clientId).orElseThrow(() -> new Exception("해당 id의 고객이 없습니다"));
+        return ClientDTO.builder()
+                .name(client.getName())
+                .password(client.getPassword())
+                .birthday(client.getBirthday())
+                .email(client.getEmail())
+                .address(client.getAddress())
+                .phone(client.getPhone())
+                .carType(client.getCarType())
+                .gender(client.getGender())
+                .build();
+    }
+
+    public void insertClient(ClientDTO clientDTO) {
+
+=======
     public Optional<Client> findClientByEmail(String inputEmail) {
         Optional<Client> result = clientRepository.findClientByEmail(inputEmail);
         return result;
@@ -48,5 +66,6 @@ public class ClientServiceImpl implements ClientService {
         System.out.println("client:"+client.getName());
         System.out.println("client:"+client.getPhone());
         clientRepository.save(client);
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     }
 }

@@ -19,7 +19,6 @@ public class ConsultDAOMemory implements ConsultDAO {
         conn = DatabaseConnection.getConnection();
     }
 
-    @Override
     public String getClientById(Long clientId) throws SQLException {
         sql = "SELECT client_name, client_birthday, client_address, client_phone " +
                 "FROM client " +

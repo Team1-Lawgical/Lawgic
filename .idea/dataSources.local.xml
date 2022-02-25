@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-213.6777.52">
-    <data-source name="localhost" uuid="7c9b7f71-f3fa-4091-a5aa-776cb39ff379">
+    <data-source name="@localhost" uuid="49ae0b16-0939-4343-9697-a94dac1f50fe">
       <database-info product="Oracle" version="Oracle Database 10g Express Edition Release 10.2.0.1.0 - Production" jdbc-version="4.2" driver-name="Oracle JDBC driver" driver-version="21.1.0.0.0" dbms="ORACLE" exact-version="10.2.0.1.0" exact-driver-version="21.1">
         <extra-name-characters>$#</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
       <user-name>hr</user-name>
       <schema-mapping>
         <introspection-scope>

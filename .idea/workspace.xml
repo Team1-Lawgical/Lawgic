@@ -4,46 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7a9ab60-87e1-4cab-b889-86d395aea966" name="Changes" comment="">
+    <list default="true" id="35c236d6-7585-49a3-87e3-2fd4c67da491" name="Changes" comment="날릴겁니다">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/controller/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/controller/ChatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/CarType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/CarType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ChatServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ChatServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/asiana/lawgic/lawgic/LawyerRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/asiana/lawgic/lawgic/LawyerRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.asiana.lawgic.lawgic.ChatRepositoryTest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.asiana.lawgic.lawgic.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.asiana.lawgic.lawgic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.asiana.lawgic.lawgic.ChatRepositoryTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/49ae0b16-0939-4343-9697-a94dac1f50fe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/49ae0b16-0939-4343-9697-a94dac1f50fe.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/controller/ConsultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/controller/ConsultController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/converter/ConsultConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/converter/ConsultConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ConsultServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ConsultServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/form/consult.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/form/consult.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/controller/ConsultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/controller/ConsultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/converter/ConsultConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/converter/ConsultConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/dto/ConsultDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/dto/ConsultDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/entity/CarType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/entity/CarType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/asiana/lawgic/lawgic/ClientRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/asiana/lawgic/lawgic/ClientRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/asiana/lawgic/lawgic/LawyerRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/asiana/lawgic/lawgic/LawyerRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/service/ConsultServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/service/ConsultServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/form/consult.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/form/consult.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -58,116 +53,85 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
-  <component name="ProjectId" id="25a6NLyzyGPHfPsXmd9mgVEL81Z" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
+  <component name="ProjectId" id="25UGB65aM1OGNHdc73bvFUKXLAy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="oracle" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/vo" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Gradle.LawyerRepositoryTest.insertLawyerData">
-    <configuration name="ClientRepositoryTest.clientInsertData" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.asiana.lawgic.lawgic.ClientRepositoryTest.clientInsertData&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="LawyerRepositoryTest.insertLawyerData" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.asiana.lawgic.lawgic.LawyerRepositoryTest.insertLawyerData&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="LawgicApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Lawgic\src\main\java\com\asiana\lawgic\lawgic\vo" />
+      <recent name="C:\Lawgic\src\main\java\com\asiana\lawgic\lawgic\dao" />
+      <recent name="C:\Lawgic\out" />
+      <recent name="C:\Lawgic\src\test\java\com\asiana\lawgic\lawgic" />
+      <recent name="C:\Lawgic\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="LawgicApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="lawgic.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.asiana.lawgic.lawgic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.asiana.lawgic.lawgic.LawgicApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.LawyerRepositoryTest.insertLawyerData" />
-        <item itemvalue="Gradle.ClientRepositoryTest.clientInsertData" />
-        <item itemvalue="Spring Boot.LawgicApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a7a9ab60-87e1-4cab-b889-86d395aea966" name="Changes" comment="" />
-      <created>1645752815634</created>
+      <changelist id="6c0f2e90-5eb1-4e80-bb89-fc9ba02f78de" name="Changes" comment="" />
+      <created>1645574119718</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1645752815634</updated>
-      <workItem from="1645752827938" duration="112000" />
-      <workItem from="1645752969242" duration="2454000" />
+      <updated>1645574119718</updated>
+      <workItem from="1645574126905" duration="29000" />
     </task>
+    <task id="LOCAL-00001" summary="날릴겁니다">
+      <created>1645665279137</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1645665279137</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -179,5 +143,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="날릴겁니다" />
+    <option name="LAST_COMMIT_MESSAGE" value="날릴겁니다" />
   </component>
 </project>

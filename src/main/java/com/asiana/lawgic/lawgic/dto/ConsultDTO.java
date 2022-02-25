@@ -1,11 +1,16 @@
 package com.asiana.lawgic.lawgic.dto;
 
 import com.asiana.lawgic.lawgic.entity.CarType;
-import lombok.Getter;
+import lombok.*;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
 public class ConsultDTO {
 
     private Long consultId;
@@ -17,7 +22,7 @@ public class ConsultDTO {
     private String opponentAddress;
     private Date opponentBirthday;
     private String opponentPhone;
-    private CarType opponentCarType;
+    private String  opponentCarType;
     private Long clientId;
     private Long lawyerId;
 }

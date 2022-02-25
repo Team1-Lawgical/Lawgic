@@ -18,8 +18,23 @@ public class ClientController {
     private final ClientService clientService;
     private final ChatService chatService;
 
+<<<<<<< HEAD
+//    @GetMapping("/login")
+//    public String mainClientController(Model model) {
+//        //service에서 clientDTO를 얻어오는 코드가 있다는 가정
+//        ClientDTO clientDTO = chatService.getClientInfo();
+//        model.addAttribute("dto", clientDTO);
+//
+//        return "/client/login";
+//    }
+
+    @GetMapping("/client")
+    public String login(String email, String password) {
+
+=======
     @GetMapping("/client")
     public String home() {
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
         return "client/login";
     }
 

@@ -27,6 +27,7 @@ public class ChatServiceImpl implements ChatService {
     final private ChatRepository chatRepository;
     final private ClientRepository clientRepository;
 
+
     public List<LawyerDTO> getAllLawyers() {
         ModelMapper mapper = ModelMapperConfig.getModelMapperInstance();
 
@@ -108,8 +109,6 @@ public class ChatServiceImpl implements ChatService {
                     .build();
             messageDTOList.add(messageDTO);
         }
-
-
         return messageDTOList;
     }
 
@@ -121,6 +120,10 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public void saveMessage(MessageDTO messageDTO) {
+<<<<<<< HEAD
+        ModelMapper mapper=ModelMapperConfig.getModelMapperInstance();
+        Message message=mapper.map(messageDTO, Message.class);
+=======
 
 //        Chat chat=chatRepository.getMessagesByChatId(Long.valueOf(messageDTO.getChatId()));
 //        List<Message> messages=chat.getMessages();
@@ -134,7 +137,7 @@ public class ChatServiceImpl implements ChatService {
 //        chatRepository.save(chat);
 
 
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     }
-
 
 }

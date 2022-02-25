@@ -5,12 +5,20 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="../css/chat/chat.css"/>
+=======
     <link rel="stylesheet" href="/css/chat/chat.css" />
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<<<<<<< HEAD
+<img id="logo-image" src="../images/logo.png" width="100" height="80">
+=======
 <img id="logo-image" src="/images/logo.png" width="100" height="80" >
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
 <div class="main-section">
     <div class="head-section">
         <div class="headLeft-section">
@@ -29,7 +37,8 @@
     <div class="body-section">
         <div class="left-section mCustomScrollbar" data-mcs-theme="minimal-dark">
             <ul class="lawyer-list">
-                <li name="chatList" th:if="${dto.clientId} == ${chatClient.clientId}" class="active" th:each="dto: ${DTO}">
+                <li name="chatList" th:if="${dto.clientId} == ${chatClient.clientId}" class="active"
+                    th:each="dto: ${DTO}">
                     <div class="chatList">
                         <div class="img">
                             <i class="fa fa-circle"></i>
@@ -79,7 +88,7 @@
                         <button class="btn"><i class="fa fa-photo"></i></button>
                         <input type="file"/>
                     </div>
-                    <input type="text" name="" placeholder="type here..." class="message-input" >
+                    <input type="text" name="" placeholder="type here..." class="message-input">
                     <button class="btn-send"><i class="fa fa-send"></i></button>
                 </form>
             </div>
@@ -95,13 +104,35 @@
 <!--<script src="/js/main.js"></script>-->
 <script th:inline="javascript">
     'use strict';
+<<<<<<< HEAD
+    var sender = [[${sender}]];
+    var receiver = [[${receiver}]];
+    var lawyerDto = [[${DTO}]];
+=======
     var sender=[[${sender}]];
     var receiver=[[${receiver}]];
     var lawyerDto=[[${DTO}]];
     var chatId=[[${chatId}]];
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
 
 
 
+<<<<<<< HEAD
+    var lawyerMessageArea = document.querySelector('.lawyer-message-area');
+    var MessageArea = document.querySelector('.client-message-area')
+    var sendButton = document.querySelector('.btn-send');
+    var chatListArea = document.querySelector('.lawyer-list');
+    //var messageInput = document.querySelector('.btn-send');
+    var messageInput = document.querySelector('.message-input');
+    // console.log(dto);
+    // if(dto.hasOwnProperty('clientId')){
+    //     console.log("hello client");
+    // }
+    // if(dto.hasOwnProperty('lawyerId')){
+    //     console.log("hello lawyer");
+    //
+    // }
+=======
     var lawyerMessageArea=document.querySelector('.lawyer-message-area');
     var MessageArea=document.querySelector('.client-message-area')
     var sendButton=document.querySelector('.btn-send');
@@ -109,6 +140,7 @@
 
     var messageInput=document.querySelector('.message-input');
 
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     var usernamePage = document.querySelector('#username-page');
     var chatPage = document.querySelector('#chat-page');
     var usernameForm = document.querySelector('#usernameForm');
@@ -134,10 +166,25 @@
     connect();
 
     function connect(event) {
+<<<<<<< HEAD
+        // username = document.querySelector('#name').value.trim();
+        //
+        // if(username) {
+        // usernamePage.classList.add('hidden');
+        // chatPage.classList.remove('hidden');
+
+        var socket = new SockJS('/ws');
+        stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, onConnected, onError);
+        //  }
+        // event.preventDefault();
+=======
             var socket = new SockJS('/ws');
             stompClient = Stomp.over(socket);
 
             stompClient.connect({}, onConnected, onError);
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     }
 
 
@@ -151,31 +198,40 @@
             JSON.stringify({sender: username, type: 'JOIN'})
         )
 
+<<<<<<< HEAD
+        // connectingElement.classList.add('hidden');
+=======
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     }
 
 
     function onError(error) {
+<<<<<<< HEAD
+        // connectingElement.textContent = 'Could not connect to WebSocket server. Please refresh this page to try again!';
+        // connectingElement.style.color = 'red';
+=======
 
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     }
 
 
     function sendMessage(event) {
         console.log("sendMessage clicked");
-        var messageContent=messageInput.value.trim();
-        var date=new Date().toString();
-        var splitDate=date.split(' ');
-        var time=splitDate[4].substring(0,5);
+        var messageContent = messageInput.value.trim();
+        var date = new Date().toString();
+        var splitDate = date.split(' ');
+        var time = splitDate[4].substring(0, 5);
 
 
-        if(Number(time.substring(0,2))>=12){
-            time=String(Number(time.substring(0,2))-12)+time.substring(2,time.length);
-            time=time+" pm";
-        }else{
-            time=time+" am";
+        if (Number(time.substring(0, 2)) >= 12) {
+            time = String(Number(time.substring(0, 2)) - 12) + time.substring(2, time.length);
+            time = time + " pm";
+        } else {
+            time = time + " am";
         }
 
 
-        if(messageContent && stompClient) {
+        if (messageContent && stompClient) {
             var chatMessage = {
                 content: messageInput.value,
                 sender: sender,
@@ -192,39 +248,49 @@
 
     function onMessageReceived(payload) {
         var message = JSON.parse(payload.body);
-        var rightSectionScrollBar=document.querySelector('.mCSB_dragger_bar');
+        var rightSectionScrollBar = document.querySelector('.mCSB_dragger_bar');
 
-        var liElement=document.createElement('li');
-        console.log("onMessageReceived:"+sender+" message.sender:"+message.sender);
-         if(sender=='client'){
-             if(message.sender=='client'){
-                 liElement.classList.add('msg-left');
-             }else{
-                 liElement.classList.add('msg-right');
-             }
-         }else {
-             if(message.sender=='client'){
-                 liElement.classList.add('msg-right');
-             }else{
-                 liElement.classList.add('msg-left');
-             }
+        var liElement = document.createElement('li');
+        console.log("onMessageReceived:" + sender + " message.sender:" + message.sender);
+        if (sender == 'client') {
+            if (message.sender == 'client') {
+                liElement.classList.add('msg-left');
+            } else {
+                liElement.classList.add('msg-right');
+            }
+        } else {
+            if (message.sender == 'client') {
+                liElement.classList.add('msg-right');
+            } else {
+                liElement.classList.add('msg-left');
+            }
 
-         }
+        }
 
-        var msgLeftSubDivElement=document.createElement('div');
+        var msgLeftSubDivElement = document.createElement('div');
         msgLeftSubDivElement.classList.add('msg-left-sub');
         liElement.appendChild(msgLeftSubDivElement);
 
+<<<<<<< HEAD
+        var imgElement = document.createElement('img');
+        imgElement.src = '../images/man.png';
+=======
         var imgElement=document.createElement('img');
         imgElement.src='/images/man.png';
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
         imgElement.classList.add('mCS_img_loaded');
-        var msgDescElement=document.createElement('div');
+        var msgDescElement = document.createElement('div');
         msgDescElement.classList.add('msg-desc');
-        var msgDescTextNode=document.createTextNode(message.content);
+        var msgDescTextNode = document.createTextNode(message.content);
         msgDescElement.appendChild(msgDescTextNode);
 
+<<<<<<< HEAD
+        var smallElement = document.createElement('small');
+        var smallTextNoe = document.createTextNode(message.regdate);
+=======
         var smallElement=document.createElement('small');
         var smallTextNoe=document.createTextNode(message.regDate);
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
         smallElement.appendChild(smallTextNoe);
 
         msgLeftSubDivElement.appendChild(imgElement);
@@ -232,7 +298,7 @@
         msgLeftSubDivElement.appendChild(smallElement);
 
         MessageArea.appendChild(liElement);
-        MessageArea.scrollTop=MessageArea.scrollHeight;
+        MessageArea.scrollTop = MessageArea.scrollHeight;
 
     }
 
@@ -245,14 +311,15 @@
         var index = Math.abs(hash % colors.length);
         return colors[index];
     }
-    document.querySelector('.message-input').addEventListener('keypress',function(e){
-        if(e.key==='Enter'){
+
+    document.querySelector('.message-input').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
             sendMessage(e);
         }
     });
 
     sendButton.addEventListener('click', sendMessage, true)
-  //  chatList();
+    //  chatList();
 </script>
 </body>
 </html>

@@ -1,37 +1,17 @@
-HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
+.gradle/7.4/executionHistory/executionHistory.bin
+.gradle/7.4/executionHistory/executionHistory.lock
+.gradle/7.4/fileHashes/fileHashes.bin
+.gradle/7.4/fileHashes/fileHashes.lock
+.gradle/7.4/fileHashes/resourceHashesCache.bin
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/file-system.probe
+.gradle/file-system.probe
+.idea/workspace.xml
+.idea/dataSources/49ae0b16-0939-4343-9697-a94dac1f50fe.xml
+*.xml
+*.probe
+*.lock
+*.bin
+*.bin
+build/tmp/compileJava/previous-compilation-data.bin

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ConsultServiceImpl implements ConsultService{
+public class ConsultServiceImpl implements ConsultService {
 
     private final ConsultRepository consultRepository;
     private final LawyerRepository lawyerRepository;
@@ -28,18 +28,23 @@ public class ConsultServiceImpl implements ConsultService{
 
     @Override
     @Transactional
-    public Consult insertConsult(ConsultDTO consultDTO) throws Exception {
-        getClient(consultDTO.getClientId());
-        getLawyer(consultDTO.getLawyerId());
+    public void insertConsult(ConsultDTO consultDTO) throws Exception {
+//        getLawyerById(consultDTO.getClientId());
+//        getClientById(consultDTO.getLawyerId());
+        if (consultDTO.getLawyerId() == null || consultDTO.getClientId() == null) {
+            System.out.println("로이어 아이디랑 고객 아이디 중에 하나가 null");
+        }
         Consult consult = converter.convertToConsult(consultDTO);
-        return consultRepository.save(consult);
+        consultRepository.save(consult);
     }
 
-    private Lawyer getLawyer(Long lawyerId) throws Exception {
+    @Transactional
+    public Lawyer getLawyerById(Long lawyerId) throws Exception {
         return lawyerRepository.findById(lawyerId).orElseThrow(() -> new Exception("존재하지 않는 변호사입니다"));
     }
 
-    private Client getClient(Long clientId) throws Exception {
+    @Transactional
+    public Client getClientById(Long clientId) throws Exception {
         return clientRepository.findById(clientId).orElseThrow(() -> new Exception("존재하지 않는 고객입니다"));
     }
 }

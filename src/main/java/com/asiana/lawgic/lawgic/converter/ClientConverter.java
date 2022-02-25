@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClientConverter {
 
-    public ClientDTO convertToClientDTO(Client client){
+    public ClientDTO convertToClientDTO(Client client) {
         return ClientDTO.builder()
                 .clientId(client.getClientId())
                 .password(client.getPassword())

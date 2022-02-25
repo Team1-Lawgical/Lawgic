@@ -51,6 +51,34 @@ public enum CarType {
                 break;
             case SPORTS_CAR:
                 number = 6;
+<<<<<<< HEAD
+                break;
+        }
+        return number;
+    }
+
+    public static int convertStringToInteger(String carType) {
+        int number = 0;
+        switch (carType) {
+            case "SUBCOMPACT_CAR":
+                number = 1;
+                break;
+            case "COMPACT_CAR":
+                number = 2;
+                break;
+            case "MID_SIZE_CAR":
+                number = 3;
+                break;
+            case "FULL_SIZE_LUXURY_CAR":
+                number = 4;
+                break;
+            case "LARGE_SIZE_CAR":
+                number = 5;
+                break;
+            case "SPORTS_CAR":
+                number = 6;
+=======
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
                 break;
         }
         return number;
