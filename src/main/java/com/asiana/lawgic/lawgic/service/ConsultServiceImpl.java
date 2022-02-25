@@ -29,8 +29,8 @@ public class ConsultServiceImpl implements ConsultService {
     @Override
     @Transactional
     public void insertConsult(ConsultDTO consultDTO) throws Exception {
-        getLawyerById(consultDTO.getClientId());
-        getClientById(consultDTO.getLawyerId());
+//        getLawyerById(consultDTO.getClientId());
+//        getClientById(consultDTO.getLawyerId());
         if (consultDTO.getLawyerId() == null || consultDTO.getClientId() == null) {
             System.out.println("로이어 아이디랑 고객 아이디 중에 하나가 null");
         }

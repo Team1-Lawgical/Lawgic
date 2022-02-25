@@ -12,35 +12,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/49ae0b16-0939-4343-9697-a94dac1f50fe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/49ae0b16-0939-4343-9697-a94dac1f50fe.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/controller/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/controller/ChatController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/controller/ConsultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/controller/ConsultController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dao/CategoryDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dao/CategoryDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dao/CategoryDAOMemory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dao/ChatDAOMemory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dao/ChatDAOMemory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dao/ConsultDAOMemory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dao/ConsultDAOMemory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dto/MessageDTO$MessageDTOBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dto/MessageDTO$MessageDTOBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dto/MessageDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/dto/MessageDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/BaseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/BaseEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/entity/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ChatService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ChatServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ChatServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ClientServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ClientServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/converter/ConsultConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/converter/ConsultConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ConsultServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/asiana/lawgic/lawgic/service/ConsultServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/chat/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/chat/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/form/consult.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/form/consult.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/controller/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/controller/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/controller/ConsultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/controller/ConsultController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/dao/CategoryDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/dao/CategoryDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/dao/ConsultDAOMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/dao/ConsultDAOMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/entity/Consult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/entity/Consult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/service/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/service/ConsultService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/converter/ConsultConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/converter/ConsultConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/dto/ConsultDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/dto/ConsultDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/entity/CarType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/entity/CarType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/service/ConsultServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asiana/lawgic/lawgic/service/ConsultServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chat/chat_lawyer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chat/chat_lawyer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/form/consult.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/form/consult.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/form/consult.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,8 +83,10 @@
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />

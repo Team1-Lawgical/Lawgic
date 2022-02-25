@@ -32,14 +32,9 @@ public class ConsultController {
         return "form/consult";
     }
 
-    @PostMapping("/consult")
+    @PostMapping("/consult/insert-consult")
     public String insertConsultation(ConsultDTO consultDTO) throws Exception {
-        System.out.println(consultDTO.getClientId());
-        System.out.println(consultDTO.getLawyerId());
-        System.out.println(consultDTO.getComments());
-        System.out.println(consultDTO.getSummary());
-        System.out.println(consultDTO.getJudgement());
-//        consultService.insertConsult(consultDTO);
-        return "client/login";
+        consultService.insertConsult(consultDTO);
+        return "chat/index";
     }
 }

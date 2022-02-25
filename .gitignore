@@ -1,0 +1,15 @@
+
+.gradle/7.4/executionHistory/executionHistory.bin
+.gradle/7.4/executionHistory/executionHistory.lock
+.gradle/7.4/fileHashes/fileHashes.bin
+.gradle/7.4/fileHashes/fileHashes.lock
+.gradle/7.4/fileHashes/resourceHashesCache.bin
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/file-system.probe
+.gradle/file-system.probe
+.idea/workspace.xml
+.idea/dataSources/49ae0b16-0939-4343-9697-a94dac1f50fe.xml
+*.xml
+*.probe
+*.lock
+*.bin
