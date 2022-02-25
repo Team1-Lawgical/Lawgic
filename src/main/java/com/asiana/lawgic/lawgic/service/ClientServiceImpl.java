@@ -42,11 +42,6 @@ public class ClientServiceImpl implements ClientService {
                 .name(clientDTO.getName())
                 .build();
         Client client2 = mapper.map(clientDTO, Client.class);
-        System.out.println("client:"+client.getClientId());
-        System.out.println("client:"+client.getEmail());
-        System.out.println("client:"+client.getPassword());
-        System.out.println("client:"+client.getName());
-        System.out.println("client:"+client.getPhone());
         clientRepository.save(client);
     }
 }
