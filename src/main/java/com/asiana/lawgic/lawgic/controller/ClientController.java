@@ -22,7 +22,7 @@ public class ClientController {
         return "client/login";
     }
 
-//    @GetMapping("/client/login")
+
     @RequestMapping(value = "/client/login", method = RequestMethod.POST)
     public String login(Model model, String email, String password) {
         Optional<Client> result = clientService.findClientByEmail(email);
