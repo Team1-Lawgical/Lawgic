@@ -1,7 +1,7 @@
 package com.asiana.lawgic.lawgic.entity;
 
 public enum Category {
-<<<<<<< HEAD
+
     CAR_TO_CAR, CAT_TO_PERSON, CAR_ONLY,RAILROAD_CROSSING;
     public static Category getCategory(int category){
         switch(category){
@@ -17,7 +17,5 @@ public enum Category {
                 return null;
         }
     }
-=======
-    CAR_TO_CAR, CAT_TO_PERSON, CAR_ONLY,RAILROAD_CROSSING
->>>>>>> 741dc138a8716d23e13b6f43f5f71901e376c30f
+
 }
