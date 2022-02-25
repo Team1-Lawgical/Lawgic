@@ -43,8 +43,8 @@ public class ChatController {
     }
     @GetMapping("/chat/client")
     public String defaultClientChatController(Model model){
-        List<LawyerDTO> lawyerDTOList=chatService.getLawyersByClientId(46L);
-        Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
+        List<LawyerDTO> lawyerDTOList=chatService.getLawyersByClientId(1L);
+        Consult consult=chatService.getConsultByLawyerAndClientId(6L,1L);
         model.addAttribute("sender","client");
         model.addAttribute("receiver","lawyer");
         model.addAttribute("DTO",lawyerDTOList);
@@ -55,8 +55,8 @@ public class ChatController {
 
     @GetMapping("/chat/lawyer/{id}")
     public String lawyerChatController(Model model, @PathVariable("id") Long id){
-        List<ClientDTO> clientDTOList=chatService.getClientsByLawyerId(51L);
-        Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
+        List<ClientDTO> clientDTOList=chatService.getClientsByLawyerId(6L);
+        Consult consult=chatService.getConsultByLawyerAndClientId(6L,1L);
         model.addAttribute("sender","lawyer");
         model.addAttribute("receiver","client");
         model.addAttribute("DTO",clientDTOList);
@@ -66,8 +66,8 @@ public class ChatController {
     }
     @GetMapping("/chat/lawyer")
     public String defaultLawyerChatController(Model model){
-        List<ClientDTO> clientDTOList=chatService.getClientsByLawyerId(51L);
-        Consult consult=chatService.getConsultByLawyerAndClientId(51L,47L);
+        List<ClientDTO> clientDTOList=chatService.getClientsByLawyerId(6L);
+        Consult consult=chatService.getConsultByLawyerAndClientId(6L,1L);
         model.addAttribute("sender","lawyer");
         model.addAttribute("receiver","client");
         model.addAttribute("DTO",clientDTOList);
