@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -23,6 +24,7 @@ public class ChatRepositoryTest {
     private ConsultRepository consultRepository;
     @Autowired
     private ChatRepository chatRepository;
+    private String[] send={"client","lawyer","client","lawyer","client","client","lawyer","client","lawyer","client"};
 
     @Test
     public void chatDataInsert() {
@@ -35,7 +37,9 @@ public class ChatRepositoryTest {
                 Message message=Message.builder()
                         .content("message content "+k)
                         .type(MessageType.CHAT)
-                        .sender(((Client)clients[i-1]).getName())
+                        .sender(send[k-1])
+                        .regDate(LocalDateTime.ofInstant(Instant.ofEpochMilli(System.currentTimeMillis()), ZoneId.of("Asia/Seoul")))
+                        .receiver(send[k-1].equals("client")?"lawyer":"client")
                         .build();
                 messages.add(message);
             });

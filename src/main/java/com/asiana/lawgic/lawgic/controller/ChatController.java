@@ -23,8 +23,9 @@ public class ChatController {
     final private SimpMessagingTemplate simpMessagingTemplate;
 
 
-    @GetMapping("/chat/client?id={id}")
+    @GetMapping("/chat/client/{id}")
     public String clientChatController(Model model, @PathVariable("id") String id) {
+<<<<<<< HEAD
         List<LawyerDTO> lawyerDTOList = chatService.getLawyersByClientId(46L);
         Consult consult = chatService.getConsultByLawyerAndClientId(51L, 46L);
         model.addAttribute("sender", "client");
@@ -32,10 +33,27 @@ public class ChatController {
         model.addAttribute("DTO", lawyerDTOList);
         model.addAttribute("chatLawyer", consult.getLawyer());
         model.addAttribute("chatId", id);
+=======
+        List<LawyerDTO> lawyerDTOList=chatService.getLawyersByClientId(46L);
+        Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
+        List<MessageDTO> messages=chatService.getMessageByChatId(Long.valueOf(id));
+        model.addAttribute("sender","client");
+        model.addAttribute("receiver","lawyer");
+        model.addAttribute("DTO",lawyerDTOList);
+        model.addAttribute("chatLawyer",consult.getLawyer());
+        model.addAttribute("chatId",id);
+        model.addAttribute("pastMessages",messages);
+        for(MessageDTO m:messages){
+            System.out.println(m.getContent());
+            System.out.println(m.getRegDate());
+        }
+
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
         return "chat/chat_client";
     }
 
     @GetMapping("/chat/client")
+<<<<<<< HEAD
     public String defaultClientChatController(Model model) {
         List<LawyerDTO> lawyerDTOList = chatService.getLawyersByClientId(46L);
         Consult consult = chatService.getConsultByLawyerAndClientId(51L, 46L);
@@ -56,6 +74,28 @@ public class ChatController {
         model.addAttribute("DTO", clientDTOList);
         model.addAttribute("chatClient", consult.getClient());
         model.addAttribute("chatId", id);
+=======
+    public String defaultClientChatController(Model model){
+        List<LawyerDTO> lawyerDTOList=chatService.getLawyersByClientId(46L);
+        Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
+        model.addAttribute("sender","client");
+        model.addAttribute("receiver","lawyer");
+        model.addAttribute("DTO",lawyerDTOList);
+        model.addAttribute("chatLawyer",consult.getLawyer());
+        System.out.println("여기여기22");
+        return "chat/chat_client";
+    }
+
+    @GetMapping("/chat/lawyer/{id}")
+    public String lawyerChatController(Model model, @PathVariable("id") Long id){
+        List<ClientDTO> clientDTOList=chatService.getClientsByLawyerId(51L);
+        Consult consult=chatService.getConsultByLawyerAndClientId(51L,46L);
+        model.addAttribute("sender","lawyer");
+        model.addAttribute("receiver","client");
+        model.addAttribute("DTO",clientDTOList);
+        model.addAttribute("chatClient",consult.getClient());
+        model.addAttribute("chatId",id);
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
         return "chat/chat_lawyer";
     }
 
@@ -79,6 +119,7 @@ public class ChatController {
 
 
     @MessageMapping("/chat.sendMessage")
+<<<<<<< HEAD
     public MessageDTO sendMessage(@Payload MessageDTO messageDTO) {
         System.out.println("content:" + messageDTO.getContent());
         System.out.println("sender:" + messageDTO.getSender());
@@ -97,4 +138,20 @@ public class ChatController {
         System.out.println("receiver:" + messageDTO.getReceiver());
         System.out.println("regdate:" + messageDTO.getRegdate());
     }
+=======
+    public MessageDTO sendMessage(@Payload MessageDTO messageDTO){
+       // chatService.saveMessage(messageDTO);
+        simpMessagingTemplate.convertAndSend("/topic/public",messageDTO);
+        return messageDTO;
+    }
+//    @PostMapping("/message")
+//    public void saveMessage(@RequestBody MessageDTO messageDTO){
+//        System.out.println("여기 호출!!!");
+//        System.out.println("content:"+messageDTO.getContent());
+//        System.out.println("sender:"+messageDTO.getSender());
+//        System.out.println("receiver:"+messageDTO.getReceiver());
+//        System.out.println("regdate:"+messageDTO.getRegdate());
+//    }
+
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
 }

@@ -16,4 +16,5 @@ public interface ChatService {
     public List<MessageDTO> getMessageByChatId(Long chatId);
     public Long getChatId(Consult consult);
     public void saveMessage(MessageDTO messageDTO);
+
 }

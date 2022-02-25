@@ -5,12 +5,20 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../css/chat/chat.css"/>
+=======
+    <link rel="stylesheet" href="/css/chat/chat.css" />
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<<<<<<< HEAD
 <img id="logo-image" src="../images/logo.png" width="100" height="80">
+=======
+<img id="logo-image" src="/images/logo.png" width="100" height="80" >
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
 <div class="main-section">
     <div class="head-section">
         <div class="headLeft-section">
@@ -34,8 +42,8 @@
                     <div class="chatList">
                         <div class="img">
                             <i class="fa fa-circle"></i>
-                            <img th:if="${dto.gender}" src="../images/man.png">
-                            <img th:unless="${dto.gender}" src="../images/woman.png">
+                            <img th:if="${dto.gender}" src="/images/man.png">
+                            <img th:unless="${dto.gender}" src="/images/woman.png">
                         </div>
                         <div class="desc">
                             <small class="time">05:30 am</small>
@@ -48,8 +56,8 @@
                     <div class="chatList">
                         <div class="img">
                             <i class="fa fa-circle"></i>
-                            <img th:if="${dto.gender}" src="../images/man.png">
-                            <img th:unless="${dto.gender}" src="../images/woman.png">
+                            <img th:if="${dto.gender}" src="/images/man.png">
+                            <img th:unless="${dto.gender}" src="/images/woman.png">
                         </div>
                         <div class="desc">
                             <small class="time">05:30 am</small>
@@ -63,7 +71,15 @@
         <div class="right-section">
             <div class="message mCustomScrollbar" data-mcs-theme="minimal-dark">
                 <ul class="client-message-area">
+                    <!--                    <li class="msg-left" th:each="msg: ${pastMessages}" th:unless="${msg.sender=='lawyer'}">-->
+                    <!--                        <div class="msg-left-sub">-->
+                    <!--                            <img src="/images/man.png">-->
+                    <!--                            <div class="msg-desc" th:text="${msg.content}">-->
 
+                    <!--                            </div>-->
+                    <!--                            <small th:text="${msg.regDate}"></small>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
                 </ul>
             </div>
             <div class="right-section-bottom">
@@ -88,14 +104,20 @@
 <!--<script src="/js/main.js"></script>-->
 <script th:inline="javascript">
     'use strict';
+<<<<<<< HEAD
     var sender = [[${sender}]];
     var receiver = [[${receiver}]];
     var lawyerDto = [[${DTO}]];
+=======
+    var sender=[[${sender}]];
+    var receiver=[[${receiver}]];
+    var lawyerDto=[[${DTO}]];
+    var chatId=[[${chatId}]];
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
 
 
-    //var message=[[${message}]];
 
-
+<<<<<<< HEAD
     var lawyerMessageArea = document.querySelector('.lawyer-message-area');
     var MessageArea = document.querySelector('.client-message-area')
     var sendButton = document.querySelector('.btn-send');
@@ -110,6 +132,15 @@
     //     console.log("hello lawyer");
     //
     // }
+=======
+    var lawyerMessageArea=document.querySelector('.lawyer-message-area');
+    var MessageArea=document.querySelector('.client-message-area')
+    var sendButton=document.querySelector('.btn-send');
+    var chatListArea=document.querySelector('.lawyer-list');
+
+    var messageInput=document.querySelector('.message-input');
+
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     var usernamePage = document.querySelector('#username-page');
     var chatPage = document.querySelector('#chat-page');
     var usernameForm = document.querySelector('#usernameForm');
@@ -133,58 +164,9 @@
 
 
     connect();
-    //
-    // function chatList(){
-    //     console.log(lawyerDto);
-    //     for(var dto in lawyerDto){
-    //         console.log(dto.name);
-    //         console.log(dto.name.toString());
-    //
-    //         var chatListArea = document.createElement('li');
-    //
-    //         var chatListElement=document.createElement('div');
-    //         chatListElement.classList.add('chatList');
-    //         var imgElement=document.createElement('div');
-    //         imgElement.classList.add('img');
-    //         chatListElement.appendChild(imgElement);
-    //
-    //         var iElement=document.createElement('i');
-    //         iElement.classList.add(".fa.fa-circle");
-    //         var imageElement=document.createElement('img');
-    //         imageElement.src="../images/man.png";
-    //         imgElement.appendChild(iElement);
-    //         imgElement.appendChild(imageElement);
-    //
-    //         var descElement=document.createElement('div');
-    //         descElement.classList.add("desc");
-    //
-    //         var smallTimeElement=document.createElement('small');
-    //         smallTimeElement.classList.add('time');
-    //         var smallTimeText=document.createTextNode(new Date().toString());
-    //         smallTimeElement.appendChild(smallTimeText);
-    //         smallTimeElement.classList.add("time");
-    //
-    //         var h5Element=document.createElement('h5');
-    //         var h5Text=document.createTextNode(dto.name);
-    //         h5Element.appendChild(h5Text);
-    //         var smallElement=document.createElement('small');
-    //         var smallText=document.createTextNode("상담 종료");
-    //         smallTimeElement.appendChild(smallText);
-    //
-    //         descElement.appendChild(smallTimeElement);
-    //         descElement.appendChild(h5Element);
-    //         descElement.appendChild(smallElement);
-    //
-    //         chatListElement.appendChild(descElement);
-    //
-    //         chatListArea.appendChild(chatListElement);
-    //     }
-    //
-    //
-    //
-    // }
 
     function connect(event) {
+<<<<<<< HEAD
         // username = document.querySelector('#name').value.trim();
         //
         // if(username) {
@@ -197,6 +179,12 @@
         stompClient.connect({}, onConnected, onError);
         //  }
         // event.preventDefault();
+=======
+            var socket = new SockJS('/ws');
+            stompClient = Stomp.over(socket);
+
+            stompClient.connect({}, onConnected, onError);
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     }
 
 
@@ -210,13 +198,20 @@
             JSON.stringify({sender: username, type: 'JOIN'})
         )
 
+<<<<<<< HEAD
         // connectingElement.classList.add('hidden');
+=======
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     }
 
 
     function onError(error) {
+<<<<<<< HEAD
         // connectingElement.textContent = 'Could not connect to WebSocket server. Please refresh this page to try again!';
         // connectingElement.style.color = 'red';
+=======
+
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     }
 
 
@@ -241,7 +236,8 @@
                 content: messageInput.value,
                 sender: sender,
                 receiver: receiver,
-                regdate: time,
+                regDate: time,
+                chatId: chatId
             };
             stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
             messageInput.value = '';
@@ -275,16 +271,26 @@
         msgLeftSubDivElement.classList.add('msg-left-sub');
         liElement.appendChild(msgLeftSubDivElement);
 
+<<<<<<< HEAD
         var imgElement = document.createElement('img');
         imgElement.src = '../images/man.png';
+=======
+        var imgElement=document.createElement('img');
+        imgElement.src='/images/man.png';
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
         imgElement.classList.add('mCS_img_loaded');
         var msgDescElement = document.createElement('div');
         msgDescElement.classList.add('msg-desc');
         var msgDescTextNode = document.createTextNode(message.content);
         msgDescElement.appendChild(msgDescTextNode);
 
+<<<<<<< HEAD
         var smallElement = document.createElement('small');
         var smallTextNoe = document.createTextNode(message.regdate);
+=======
+        var smallElement=document.createElement('small');
+        var smallTextNoe=document.createTextNode(message.regDate);
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
         smallElement.appendChild(smallTextNoe);
 
         msgLeftSubDivElement.appendChild(imgElement);

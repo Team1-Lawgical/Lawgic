@@ -51,6 +51,7 @@ public enum CarType {
                 break;
             case SPORTS_CAR:
                 number = 6;
+<<<<<<< HEAD
                 break;
         }
         return number;
@@ -76,6 +77,8 @@ public enum CarType {
                 break;
             case "SPORTS_CAR":
                 number = 6;
+=======
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
                 break;
         }
         return number;

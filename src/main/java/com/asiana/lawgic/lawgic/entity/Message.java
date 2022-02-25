@@ -3,6 +3,9 @@ package com.asiana.lawgic.lawgic.entity;
 import lombok.*;
 
 import javax.persistence.Embeddable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -10,7 +13,7 @@ import javax.persistence.Embeddable;
 @Data
 @Builder
 @Embeddable
-public class Message extends BaseEntity{
+public class Message{
 
     private String content;
 
@@ -19,4 +22,8 @@ public class Message extends BaseEntity{
     private String receiver;
 
     private MessageType type;
+
+    private LocalDateTime regDate;
+
+
 }

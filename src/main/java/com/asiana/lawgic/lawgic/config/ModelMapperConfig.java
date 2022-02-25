@@ -8,10 +8,10 @@ public class ModelMapperConfig {
     private ModelMapperConfig(){
 
     }
-    public static ModelMapper getModelMapperInstance(){
-        if(modelMapper==null){
-            modelMapper=new ModelMapper();
-            modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+    public static ModelMapper getModelMapperInstance() {
+        if (modelMapper == null) {
+            modelMapper = new ModelMapper();
+            modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STANDARD);
         }
         return modelMapper;
     }

@@ -14,6 +14,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,11 +97,16 @@ public class ChatServiceImpl implements ChatService {
     @Override
     public List<MessageDTO> getMessageByChatId(Long chatId) {
         ModelMapper mapper = ModelMapperConfig.getModelMapperInstance();
-        Chat chat = chatRepository.getMessagesByChatId(21L);
+        Chat chat = chatRepository.getMessagesByChatId(chatId);
         List<Message> messages = chat.getMessages();
         List<MessageDTO> messageDTOList = new ArrayList<>();
         for (Message m : messages) {
-            MessageDTO messageDTO = mapper.map(messages, MessageDTO.class);
+            MessageDTO messageDTO = MessageDTO.builder()
+                    .content(m.getContent())
+                    .sender(m.getSender())
+                    .receiver(m.getReceiver())
+                    .regDate(m.getRegDate().format(DateTimeFormatter.ofPattern("yyyy MM dd")))
+                    .build();
             messageDTOList.add(messageDTO);
         }
         return messageDTOList;
@@ -113,8 +120,24 @@ public class ChatServiceImpl implements ChatService {
 
     @Override
     public void saveMessage(MessageDTO messageDTO) {
+<<<<<<< HEAD
         ModelMapper mapper=ModelMapperConfig.getModelMapperInstance();
         Message message=mapper.map(messageDTO, Message.class);
+=======
+
+//        Chat chat=chatRepository.getMessagesByChatId(Long.valueOf(messageDTO.getChatId()));
+//        List<Message> messages=chat.getMessages();
+//        Message msg=Message.builder()
+//                .content(messageDTO.getContent())
+//                .sender(messageDTO.getSender())
+//                .receiver(messageDTO.getReceiver())
+//                .regDate(LocalDateTime.ofInstant(Instant.ofEpochMilli(System.currentTimeMillis()), ZoneId.of("Asia/Seoul")))
+//                .build();
+//        messages.add(msg);
+//        chatRepository.save(chat);
+
+
+>>>>>>> 494cddd2facd44c4ba5c0a59aa0abd734b85e28e
     }
 
 }
