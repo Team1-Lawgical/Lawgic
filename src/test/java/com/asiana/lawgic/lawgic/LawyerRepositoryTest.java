@@ -1,5 +1,6 @@
 package com.asiana.lawgic.lawgic;
 
+import com.asiana.lawgic.lawgic.entity.CarType;
 import com.asiana.lawgic.lawgic.entity.Category;
 import com.asiana.lawgic.lawgic.entity.Lawyer;
 import com.asiana.lawgic.lawgic.repository.LawyerRepository;
@@ -12,9 +13,9 @@ import java.util.stream.IntStream;
 
 @SpringBootTest
 public class LawyerRepositoryTest {
-    private String[] address = {"경기도 시흥시", "경기도 화성시", "서울시 화곡동", " 서울시 염창동", "서울시 관악구"};
+    private String[] address = {"경기도 용인시 처인구 남사읍 화곡로 328-1", "인천광역시 미추홀구 염창로 1-1", "서울특별시 종로구 종로1가 24 르메이에르종로타운1", " 서울특별시 마포구 노고산동 57-4 신촌카리스빌딩", "서울특별시 강남구 삼성구 188 삼성동센트럴아이파크"};
     private String[] birthday = {"1995/03/16", "1996/04/25", "1997/12/24", "1993/06/23", "1997/02/12"};
-    private String[] carType = {"Sonata", "Genesis", "Lamborghini", "SM6", "Lincoln"};
+    private CarType[] carType = {CarType.CITY_CAR, CarType.COMPACT_CAR, CarType.LARGE_SIZE_CAR, CarType.MID_SIZE_CAR, CarType.FULL_SIZE_LUXURY_CAR};
     private String[] email = {"kang@naver.com", "danny@nate.com", "terry@yahoo.com", "jack@gmail.com", "megan@naver.com"};
     private String[] name = {"강형성", "김윤성", "유아인", "김동성", "송인아"};
     private String[] password = {"DFGsdf", "wefR34!", "234dfD", "ghtr%^", "SDDS34e"};

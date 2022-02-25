@@ -3,12 +3,9 @@ package com.asiana.lawgic.lawgic.controller;
 import com.asiana.lawgic.lawgic.dto.ClientDTO;
 import com.asiana.lawgic.lawgic.dto.LawyerDTO;
 import com.asiana.lawgic.lawgic.dto.MessageDTO;
-import com.asiana.lawgic.lawgic.entity.Chat;
 import com.asiana.lawgic.lawgic.entity.Consult;
-import com.asiana.lawgic.lawgic.entity.Message;
 import com.asiana.lawgic.lawgic.service.ChatService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -90,7 +87,7 @@ public class ChatController {
 
     @MessageMapping("/chat.sendMessage")
     public MessageDTO sendMessage(@Payload MessageDTO messageDTO){
-        chatService.saveMessage(messageDTO);
+       // chatService.saveMessage(messageDTO);
         simpMessagingTemplate.convertAndSend("/topic/public",messageDTO);
         return messageDTO;
     }

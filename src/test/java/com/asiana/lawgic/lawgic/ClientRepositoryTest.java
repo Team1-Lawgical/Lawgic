@@ -16,7 +16,7 @@ import java.util.stream.IntStream;
 
 @SpringBootTest
 public class ClientRepositoryTest {
-    private String[] address = {"경기도 시흥시", "경기도 화성시", "서울시 화곡동", " 서울시 염창동", "서울시 관악구"};
+    private String[] address = {"경상남도 거제시 장승포동 521-4 거제도애광원", "경기도 수원시 장안구 조원동 10-6", "경기도 고양시 일산동구 백성동 1342 일산빌딩", " 경기도 시흥시 산기대학로 237 제2기숙사", "경기도 시흥시 광석동 270 시흥시청역 동원로얄듀크"};
     private String[] birthday = {"1995-03-16", "1996-04-25", "1997-12-24", "1993-06-23", "1997-02-12"};
     private CarType[] carType = { CarType.CITY_CAR, CarType.COMPACT_CAR, CarType.SPORTS_CAR, CarType.LARGE_SIZE_CAR, CarType.FULL_SIZE_LUXURY_CAR };
     private String[] email = {"young@naver.com", "teddy@nate.com", "catherine@yahoo.com", "jessy@gmail.com", "sung@naver.com"};
