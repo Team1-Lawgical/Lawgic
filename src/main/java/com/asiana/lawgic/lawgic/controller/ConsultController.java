@@ -1,13 +1,9 @@
 package com.asiana.lawgic.lawgic.controller;
 
-import com.asiana.lawgic.lawgic.converter.ConsultConverter;
 import com.asiana.lawgic.lawgic.dto.ConsultDTO;
 import com.asiana.lawgic.lawgic.entity.Client;
 import com.asiana.lawgic.lawgic.entity.Lawyer;
-import com.asiana.lawgic.lawgic.repository.ChatRepository;
 import com.asiana.lawgic.lawgic.service.ConsultServiceImpl;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
