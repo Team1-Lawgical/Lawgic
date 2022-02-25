@@ -4,13 +4,13 @@ public enum Category {
     CAR_TO_CAR, CAT_TO_PERSON, CAR_ONLY,RAILROAD_CROSSING;
     public static Category getCategory(int category){
         switch(category){
-            case 1:
+            case 0:
                 return Category.CAR_TO_CAR;
-            case 2:
+            case 1:
                 return Category.CAT_TO_PERSON;
-            case 3:
+            case 2:
                 return Category.CAR_ONLY;
-            case 4:
+            case 3:
                 return Category.RAILROAD_CROSSING;
             default:
                 return null;
