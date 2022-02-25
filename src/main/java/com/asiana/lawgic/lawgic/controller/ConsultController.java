@@ -34,6 +34,8 @@ public class ConsultController {
 
     @PostMapping("/consult/insert-consult")
     public String insertConsultation(ConsultDTO consultDTO) throws Exception {
+        consultDTO.setClientId(1L);
+        consultDTO.setLawyerId(1L);
         consultService.insertConsult(consultDTO);
         return "chat/index";
     }

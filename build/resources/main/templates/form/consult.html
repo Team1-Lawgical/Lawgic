@@ -9,14 +9,12 @@
 <div style="margin-left: 6rem;" th:each="lawyer: ${lawyer}">
     <h1 style="text-align: center;">법률 상담 신청하기</h1> <br>
     <form class="active" th:each="client: ${client}">
-        <input type="checkbox">담당변호사: <input th:value="${lawyer.getName()}"> <br>
-        <input type="checkbox">이름: <input th:value="${client.getName()}"> <br>
-        <input type="checkbox">생년월일: <input th:value="${client.getBirthday()}"> <br>
-        <input type="checkbox">주소: <input th:value="${client.getAddress()}"> <br>
-        <input type="checkbox">연락처: <input th:value="${client.getPhone()}"> <br>
+        <input type="checkbox" checked>담당변호사: <input th:value="${lawyer.getName()}"> <br>
+        <input type="checkbox" checked>이름: <input th:value="${client.getName()}"> <br>
+        <input type="checkbox" checked>생년월일: <input th:value="${client.getBirthday()}"> <br>
+        <input type="checkbox" checked>주소: <input th:value="${client.getAddress()}"> <br>
+        <input type="checkbox" checked>연락처: <input th:value="${client.getPhone()}"> <br>
     </form>
-</div>
-<div style="margin-left: 6rem;">
     <form method="post" action="/consult/insert-consult">
         예약일자: <input type="date" name="appointmentDate"> <br>
         상대방 이름: <input name="opponentName"> <br>
@@ -34,14 +32,14 @@
             <option name="SPORTS_CAR">스포츠카</option>
         </select> <br>
         <div style="display: inline-flex; margin-left: 2rem;">
-            <div>
-                <h3>lawyerId</h3>
-                <input type="text" name="lawyerId">
-            </div>
-            <div>
-                <h3>clientId</h3>
-                <input type="text" name="clientId">
-            </div>
+<!--            <div>-->
+<!--                <h3>lawyerId</h3>-->
+<!--                <input type="text" name="lawyerId">-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <h3>clientId</h3>-->
+<!--                <input type="text" name="clientId">-->
+<!--            </div>-->
             <div>
                 <h3>사건요약</h3>
                 <textarea rows="10" cols="50" name="summary"></textarea>

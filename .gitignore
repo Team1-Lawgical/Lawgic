@@ -13,3 +13,5 @@
 *.probe
 *.lock
 *.bin
+*.bin
+build/tmp/compileJava/previous-compilation-data.bin
