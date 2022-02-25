@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.asiana.lawgic.lawgic.ConsultRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-25T04:23:33" hostname="DESKTOP-DH5MQM9" time="0.279">
+  <properties/>
+  <testcase name="consultInsertData()" classname="com.asiana.lawgic.lawgic.ConsultRepositoryTest" time="0.279"/>
+  <system-out><![CDATA[13:23:25.877 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+13:23:25.892 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+13:23:25.930 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.asiana.lawgic.lawgic.ConsultRepositoryTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+13:23:25.946 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.asiana.lawgic.lawgic.ConsultRepositoryTest], using SpringBootContextLoader
+13:23:25.946 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.asiana.lawgic.lawgic.ConsultRepositoryTest]: class path resource [com/asiana/lawgic/lawgic/ConsultRepositoryTest-context.xml] does not exist
+13:23:25.946 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.asiana.lawgic.lawgic.ConsultRepositoryTest]: class path resource [com/asiana/lawgic/lawgic/ConsultRepositoryTestContext.groovy] does not exist
+13:23:25.946 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.asiana.lawgic.lawgic.ConsultRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+13:23:25.946 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.asiana.lawgic.lawgic.ConsultRepositoryTest]: ConsultRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:23:25.992 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.asiana.lawgic.lawgic.ConsultRepositoryTest]
+13:23:26.062 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\young\lawgic\build\classes\java\main\com\asiana\lawgic\lawgic\LawgicApplication.class]
+13:23:26.062 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.asiana.lawgic.lawgic.LawgicApplication for test class com.asiana.lawgic.lawgic.ConsultRepositoryTest
+13:23:26.201 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.asiana.lawgic.lawgic.ConsultRepositoryTest]: using defaults.
+13:23:26.201 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+13:23:26.217 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@33aa93c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@32c0915e, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@106faf11, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@70f43b45, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@26d10f2e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@10ad20cb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7dd712e8, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2c282004, org.springframework.test.context.event.EventPublishingTestExecutionListener@22ee2d0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7bfc3126, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3e792ce3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@53bc1328, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@26f143ed, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3c1e3314, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4b770e40]
+13:23:26.217 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@437e951d testClass = ConsultRepositoryTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@77b325b3 testClass = ConsultRepositoryTest, locations = '{}', classes = '{class com.asiana.lawgic.lawgic.LawgicApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@a4b2d8f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4a3329b9, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@13e3c1c7, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6c6c5427, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@207ea13, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@6f8e8894], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.3)
+
+2022-02-25 13:23:26.602  INFO 9512 --- [    Test worker] c.a.lawgic.lawgic.ConsultRepositoryTest  : Starting ConsultRepositoryTest using Java 11.0.13 on DESKTOP-DH5MQM9 with PID 9512 (started by young in C:\Users\young\lawgic)
+2022-02-25 13:23:26.602  INFO 9512 --- [    Test worker] c.a.lawgic.lawgic.ConsultRepositoryTest  : No active profile set, falling back to default profiles: default
+2022-02-25 13:23:27.574  INFO 9512 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-25 13:23:27.705  INFO 9512 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113 ms. Found 4 JPA repository interfaces.
+2022-02-25 13:23:28.606  INFO 9512 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-25 13:23:28.606  WARN 9512 --- [    Test worker] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2022-02-25 13:23:28.991  INFO 9512 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-25 13:23:29.207  INFO 9512 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-25 13:23:29.291  INFO 9512 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-25 13:23:29.592  INFO 9512 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-25 13:23:29.808  INFO 9512 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2022-02-25 13:23:30.994  INFO 9512 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-25 13:23:31.010  INFO 9512 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+confiureMessageBroker 연동!!**
+end point 연결!!!***
+2022-02-25 13:23:32.407  WARN 9512 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-25 13:23:33.451  INFO 9512 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2022-02-25 13:23:33.451  INFO 9512 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1aade3c]]
+2022-02-25 13:23:33.451  INFO 9512 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2022-02-25 13:23:33.467  INFO 9512 --- [    Test worker] c.a.lawgic.lawgic.ConsultRepositoryTest  : Started ConsultRepositoryTest in 7.209 seconds (JVM running for 8.808)
+Hibernate: 
+    select
+        lawyer0_.lawyer_id as lawyer_id1_3_,
+        lawyer0_.address as address2_3_,
+        lawyer0_.category_id as category_id3_3_,
+        lawyer0_.email as email4_3_,
+        lawyer0_.gender as gender5_3_,
+        lawyer0_.name as name6_3_,
+        lawyer0_.password as password7_3_,
+        lawyer0_.phone as phone8_3_,
+        lawyer0_.valid as valid9_3_ 
+    from
+        lawyer lawyer0_
+Hibernate: 
+    select
+        client0_.client_id as client_id1_1_,
+        client0_.address as address2_1_,
+        client0_.birthday as birthday3_1_,
+        client0_.car_type as car_type4_1_,
+        client0_.email as email5_1_,
+        client0_.gender as gender6_1_,
+        client0_.name as name7_1_,
+        client0_.password as password8_1_,
+        client0_.phone as phone9_1_ 
+    from
+        client client0_
+Hibernate: 
+    select
+        hibernate_sequence.nextval 
+    from
+        dual
+Hibernate: 
+    insert 
+    into
+        consult
+        (appointment_date, client_id, comments, judgement, lawyer_id, opponent_address, opponent_birthday, opponent_car_type, opponent_name, opponent_phone, summary, consult_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        hibernate_sequence.nextval 
+    from
+        dual
+Hibernate: 
+    insert 
+    into
+        consult
+        (appointment_date, client_id, comments, judgement, lawyer_id, opponent_address, opponent_birthday, opponent_car_type, opponent_name, opponent_phone, summary, consult_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        hibernate_sequence.nextval 
+    from
+        dual
+Hibernate: 
+    insert 
+    into
+        consult
+        (appointment_date, client_id, comments, judgement, lawyer_id, opponent_address, opponent_birthday, opponent_car_type, opponent_name, opponent_phone, summary, consult_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
