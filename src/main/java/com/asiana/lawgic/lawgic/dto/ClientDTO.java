@@ -23,7 +23,7 @@ public class ClientDTO {
 
     private String address;
 
-    private String phone;
+    private int phone;
 
     private CarType carType;
 
