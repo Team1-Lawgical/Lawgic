@@ -1,11 +1,15 @@
 package com.asiana.lawgic.lawgic;
 
+import com.asiana.lawgic.lawgic.config.ModelMapperConfig;
+import com.asiana.lawgic.lawgic.dto.ClientDTO;
 import com.asiana.lawgic.lawgic.entity.CarType;
 import com.asiana.lawgic.lawgic.entity.Client;
 import com.asiana.lawgic.lawgic.repository.ClientRepository;
 import org.junit.jupiter.api.Test;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.ui.ModelMap;
 
 import java.sql.Date;
 import java.text.ParseException;
@@ -63,6 +67,21 @@ public class ClientRepositoryTest {
     }
     @Test
     public void getAllClientsTest(){
-
+        ClientDTO clientDTO=ClientDTO.builder()
+                .clientId(3L)
+                .phone("1234")
+                .name("young")
+                .carType(CarType.CITY_CAR)
+                .address("경기도")
+                .password("sdfsdf")
+                .gender(1)
+                .build();
+        ModelMapper map= ModelMapperConfig.getModelMapperInstance();
+        Client client=map.map(clientDTO,Client.class);
+        System.out.println(client.getClientId());
+        System.out.println(client.getName());
+        System.out.println(client.getAddress());
+        System.out.println(client.getPassword());
+        System.out.println(client.getClientId());
     }
 }

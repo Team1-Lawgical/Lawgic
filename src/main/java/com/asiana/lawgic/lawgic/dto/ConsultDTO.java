@@ -6,6 +6,7 @@ import lombok.Getter;
 import java.sql.Date;
 
 @Getter
+
 public class ConsultDTO {
 
     private Long consultId;
