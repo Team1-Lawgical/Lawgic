@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section class="hero-wrap hero-wrap-2"
+         style="background-image: url('${pageContext.request.contextPath}/healthy/images/bg_2.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div
+                class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+
+                <h1 class="mb-0 bread">회원가입</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="wrapper">
+                    <div class="row no-gutters">
+                        <div
+                                class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">회원가입</h3>
+                                <form method="post" name="contactForm" class="contactForm"
+                                      action="/client/insertClient"
+                                      id="regForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="label" for="email">Email</label> <input
+                                                    type="text" class="form-control" name="email" id="email"
+                                                    placeholder="이메일을 입력해주세요">
+<!--                                                @<select name="domain"-->
+<!--                                                                                       class="domain form-control">-->
+<!--                                                <option value="" selected>선택하세요.</option>-->
+<!--                                                <option value="gmail.com">gmail.com</option>-->
+<!--                                                <option value="naver.com">naver.com</option>-->
+<!--                                                <option value="nate.com">nate.com</option>-->
+<!--                                                <option value="yahoo.com">yahoo.com</option>-->
+<!--                                                <option value="daum.net">daum.net</option>-->
+<!--                                            </select>-->
+                                                <span id="idCheckView"></span>
+
+                                            </div>
+                                        </div>
+
+                                        <!--                                        <div class="col-md-10">-->
+                                        <!--                                            <div class="form-group">-->
+                                        <!--                                                <label class="label" for="id">ID</label> <input type="text"-->
+                                        <!--                                                                                                class="form-control" name="memberId" id="id"-->
+                                        <!--                                                                                                placeholder="아이디를 입력하세요"> <span id="idCheckView"></span>-->
+                                        <!--                                            </div>-->
+                                        <!--                                        </div>-->
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="label" for="password">PASSWORD</label> <input
+                                                    type="password" class="form-control" name="password"
+                                                    id="password1" placeholder="비밀번호를 입력하세요">
+                                            </div>
+                                            <div class="form-group">
+                                                CONFIRM PASSWORD<input type="password" class="form-control"
+                                                                       name="password2"
+                                                                       id="password2" placeholder="비밀번호를 확인해주세요">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="label" for="name">NAME</label> <input
+                                                    type="text" class="form-control" name="name"
+                                                    id="name" placeholder="이름을 입력하세요">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="label" for="birthday">BIRTHDAY</label> <input
+                                                    type="date" class="form-control" name="birthday"
+                                                    value="1995-01-01"
+                                                    id="birthday" placeholder="생년월일을 입력해주세요">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="label" for="phone">PHONE</label> <input
+                                                    type="tel" class="form-control" name="phone" id="phone"
+                                                    pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+                                                    placeholder="전화번호를 입력해주세요(ex.010-1234-1234)">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="label" for="address">ADDRESS</label> <input
+                                                    type="text" class="form-control" name="address"
+                                                    id="address" placeholder="주소를 입력해주세요">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="label" for="carType">CAR TYPE</label>
+                                                <select name="carType" id="carType"
+                                                        class="domain form-control">
+                                                    <option value="" selected>차급을 선택하세요</option>
+                                                    <option value="CITY_CAR">경차</option>
+                                                    <option value="SUBCOMPACT_CAR">소형차</option>
+                                                    <option value="COMPACT_CAR">준중형차</option>
+                                                    <option value="MID_SIZE_CAR">중형차</option>
+                                                    <option value="FULL_SIZE_LUXURY_CAR">준대형차</option>
+                                                    <option value="LARGE_SIZE_CAR">대형차</option>
+                                                    <option value="SPORTS_CAR">스포츠카</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="gender" for="gender">GENDER</label>
+                                                <input type="radio" class="form-control" name="gender" id="male"
+                                                       value="0">남성
+                                                <input type="radio" class="form-control" name="gender" id="female"
+                                                       value="1">여성
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <br> <br> <input type="submit" value="sign up"
+                                                                 class="btn btn-primary">
+                                                <div class="submitting"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
+                            <div class="info-wrap bg-primary w-100 p-md-5 p-4">
+                                <h3>Lawgic</h3>
+                                <p class="mb-4">회원가입 후 서비스를 이용할 수 있습니다.</p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+<script th:src="@{//code.jquery.com/jquery-1.11.0.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/client/signupForm.js}"></script>
+</html>

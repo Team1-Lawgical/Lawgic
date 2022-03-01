@@ -78,10 +78,6 @@ public class ClientRepositoryTest {
                 .build();
         ModelMapper map= ModelMapperConfig.getModelMapperInstance();
         Client client=map.map(clientDTO,Client.class);
-        System.out.println(client.getClientId());
-        System.out.println(client.getName());
-        System.out.println(client.getAddress());
-        System.out.println(client.getPassword());
-        System.out.println(client.getClientId());
+
     }
 }
